@@ -124,7 +124,7 @@
       <!-- Item 1 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox1" onclick="openLightbox(1)">
+          <a href="#lightbox" onclick="openLightbox(0)">
             <img src="imagens/cozinha.html/1.jpg" alt="Cozinha 1"/>
           </a>
         </div>
@@ -133,7 +133,7 @@
       <!-- Item 2 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox2" onclick="openLightbox(2)">
+          <a href="#lightbox" onclick="openLightbox(1)">
             <img src="imagens/cozinha.html/2.jpg" alt="Cozinha 2"/>
           </a>
         </div>
@@ -142,7 +142,7 @@
       <!-- Item 3 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox3" onclick="openLightbox(3)">
+          <a href="#lightbox" onclick="openLightbox(2)">
             <img src="imagens/cozinha.html/3.jpg" alt="Cozinha 3"/>
           </a>
         </div>
@@ -151,7 +151,7 @@
       <!-- Item 4 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox4" onclick="openLightbox(4)">
+          <a href="#lightbox" onclick="openLightbox(3)">
             <img src="imagens/cozinha.html/4.jpg" alt="Cozinha 4"/>
           </a>
         </div>
@@ -160,7 +160,7 @@
       <!-- Item 5 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox5" onclick="openLightbox(5)">
+          <a href="#lightbox" onclick="openLightbox(4)">
             <img src="imagens/cozinha.html/5.jpg" alt="Cozinha 5"/>
           </a>
         </div>
@@ -169,7 +169,7 @@
       <!-- Item 6 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox6" onclick="openLightbox(6)">
+          <a href="#lightbox" onclick="openLightbox(5)">
             <img src="imagens/cozinha.html/6.jpg" alt="Cozinha 6"/>
           </a>
         </div>
@@ -178,7 +178,7 @@
       <!-- Item 7 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox7" onclick="openLightbox(7)">
+          <a href="#lightbox" onclick="openLightbox(6)">
             <img src="imagens/cozinha.html/7.jpg" alt="Cozinha 7"/>
           </a>
         </div>
@@ -187,7 +187,7 @@
       <!-- Item 8 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox8" onclick="openLightbox(8)">
+          <a href="#lightbox" onclick="openLightbox(7)">
             <img src="imagens/cozinha.html/8.jpg" alt="Cozinha 8"/>
           </a>
         </div>
@@ -196,7 +196,7 @@
       <!-- Item 9 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox9" onclick="openLightbox(9)">
+          <a href="#lightbox" onclick="openLightbox(8)">
             <img src="imagens/cozinha.html/9.jpg" alt="Cozinha 9"/>
           </a>
         </div>
@@ -205,7 +205,7 @@
       <!-- Item 10 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox10" onclick="openLightbox(10)">
+          <a href="#lightbox" onclick="openLightbox(9)">
             <img src="imagens/cozinha.html/10.JPG" alt="Cozinha 10"/>
           </a>
         </div>
@@ -214,7 +214,7 @@
       <!-- Item 11 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox11" onclick="openLightbox(11)">
+          <a href="#lightbox" onclick="openLightbox(10)">
             <img src="imagens/cozinha.html/11.jpg" alt="Cozinha 11"/>
           </a>
         </div>
@@ -223,7 +223,7 @@
       <!-- Item 12 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox12" onclick="openLightbox(12)">
+          <a href="#lightbox" onclick="openLightbox(11)">
             <img src="imagens/cozinha.html/12.jpg" alt="Cozinha 12"/>
           </a>
         </div>
@@ -258,7 +258,7 @@
 
     // Função para abrir o lightbox
     function openLightbox(index) {
-      currentIndex = index - 1; // Ajusta o índice para começar em 0
+      currentIndex = index;
       const lightbox = document.getElementById('lightbox');
       const lightboxImg = document.getElementById('lightbox-img');
       lightboxImg.src = images[currentIndex];
@@ -277,9 +277,9 @@
 
       // Verifica se o índice está dentro dos limites
       if (currentIndex < 0) {
-        currentIndex = images.length - 1;
+        currentIndex = images.length - 1; // Volta para a última imagem
       } else if (currentIndex >= images.length) {
-        currentIndex = 0;
+        currentIndex = 0; // Volta para a primeira imagem
       }
 
       const lightboxImg = document.getElementById('lightbox-img');
