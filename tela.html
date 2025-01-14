@@ -35,7 +35,7 @@
       position: fixed; /* Fixa o header no topo */
       top: 0;
       left: 0;
-      padding: 20px;
+      padding: 10px 20px; /* Reduzir o padding para mobile */
       z-index: 1000; /* Garante que o header fique acima de tudo */
       background-color: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente */
     }
@@ -44,13 +44,22 @@
       align-items: center;
     }
     .logo-wrapper img {
-      height: 90px;
+      height: 60px; /* Reduzir o tamanho da logo para mobile */
       margin-right: 10px;
     }
     .nav-links {
-      display: flex;
-      gap: 40px; /* Aumentei o espaçamento entre os links */
-      margin-right: 80px; /* Aumentei a margem direita para mover os links mais para a direita */
+      display: none; /* Oculta os links no mobile */
+      flex-direction: column;
+      gap: 20px;
+      position: absolute;
+      top: 70px; /* Posiciona o menu abaixo do header */
+      right: 20px;
+      background-color: rgba(0, 0, 0, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .nav-links.active {
+      display: flex; /* Mostra os links quando o menu está ativo */
     }
     .nav-links a {
       text-decoration: none;
@@ -60,6 +69,12 @@
     }
     .nav-links a:hover {
       color: #FF8C00;
+    }
+    .menu-toggle {
+      display: block; /* Mostra o botão do menu no mobile */
+      font-size: 1.5rem;
+      color: white;
+      cursor: pointer;
     }
     .section {
       height: 100vh; /* Cada seção ocupa 100% da altura da tela */
@@ -80,14 +95,14 @@
       color: white;
     }
     .section-orange h2 {
-      font-size: 4rem; /* Título maior */
+      font-size: 2.5rem; /* Reduzir o tamanho do título para mobile */
       margin-bottom: 20px;
       font-family: "Raleway", serif; /* Aplicando Raleway ao título */
       font-weight: 400;
     }
     .section-orange p {
-      font-size: 1.2rem;
-      max-width: 600px;
+      font-size: 1rem; /* Reduzir o tamanho do texto para mobile */
+      max-width: 100%; /* Ocupar toda a largura */
       margin: 0;
       color: rgba(255, 255, 255, 0.8); /* Branco com 80% de opacidade */
       line-height: 1.6; /* Espaçamento entre linhas */
@@ -99,11 +114,14 @@
     <div class="logo-wrapper">
       <img src="imagens/logo.png" alt="Logo" class="relative left-10"/>
       <div>
-        <span class="text-4xl font-bold text-[#FF8C00] block cormorant-garamond-semibold">Móveis Evidence</span>
-        <span class="text-xl text-white block cormorant-garamond-semibold">Móveis Planejados</span>
+        <span class="text-2xl font-bold text-[#FF8C00] block cormorant-garamond-semibold">Móveis Evidence</span>
+        <span class="text-lg text-white block cormorant-garamond-semibold">Móveis Planejados</span>
       </div>
     </div>
-    <nav class="nav-links">
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i> <!-- Ícone do menu de hambúrguer -->
+    </div>
+    <nav class="nav-links" id="mobile-menu">
       <a href="#tela-inicial" id="tela-inicial-link">Tela inicial</a>
       <a href="#sobre" id="sobre-link">Sobre</a>
       <a href="cozinha.html" id="projetos-link">Projetos</a> <!-- Link para cozinha.html -->
@@ -112,7 +130,7 @@
 
   <!-- Seção preta (inicial) -->
   <section id="tela-inicial" class="section section-black">
-    <h1 class="text-6xl md:text-7xl font-bold mb-4 text-orange-500 text-glow cormorant-garamond-semibold">
+    <h1 class="text-4xl md:text-6xl font-bold mb-4 text-orange-500 text-glow cormorant-garamond-semibold">
       FABRICAMOS SONHOS <br> SOB MEDIDA.
     </h1>
     <p class="text-lg md:text-xl text-gray-400 mb-8">
@@ -132,7 +150,7 @@
 
   <!-- Seção laranja (Sobre) -->
   <section id="sobre" class="section section-orange">
-    <h2 class="text-5xl font-bold raleway-regular">SOBRE</h2>
+    <h2 class="text-3xl font-bold raleway-regular">SOBRE</h2>
     <div class="mt-6 text-lg max-w-2xl">
       <p>Fundado em 2021, nós passamos de um estúdio de design local para uma equipe de consultoria especializada em estratégias e design de marcas.</p>
       <p class="mt-4">Isso nos permitiu trabalhar com empresas pequenas e grandes de diversos setores dentro e fora do país.</p>
@@ -140,6 +158,12 @@
   </section>
 
   <script>
+    // Função para alternar o menu mobile
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('active');
+    }
+
     // Função de easing para rolagem suave
     function easeInOutQuad(t) {
       return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
