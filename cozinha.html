@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
@@ -84,23 +85,67 @@
       font-weight: 600;
       font-style: normal;
     }
+    /* Menu Mobile */
+    #mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      background-color: rgba(0, 0, 0, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    #mobile-menu.active {
+      display: flex;
+    }
+    #mobile-menu a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+    #mobile-menu a:hover {
+      color: #FF8C00;
+    }
+    /* Oculta o menu de hambúrguer no PC */
+    @media (min-width: 769px) {
+      .menu-toggle {
+        display: none !important;
+      }
+    }
   </style>
 </head>
 <body class="bg-black text-white flex flex-col items-center justify-center min-h-screen relative">
   <div class="blob blob-large" style="top: 20%; left: 30%;"></div>
   <div class="blob blob-small" style="top: 50%; left: 60%;"></div>
   <nav class="flex items-center justify-between p-6 w-full max-w-6xl z-10">
-    <div class="flex items-center space-x-0"> <!-- Ajuste no espaço entre logo e textos -->
+    <div class="flex items-center space-x-0">
       <img src="imagens/logo.png" alt="Logo" class="h-20"/>
       <div class="flex flex-col">
-        <span class="text-4xl font-bold text-[#FF8C00] cormorant-garamond-semibold"> <!-- Cor aplicada ao "Móveis Evidence" -->
+        <span class="text-4xl font-bold text-[#FF8C00] cormorant-garamond-semibold">
           Móveis Evidence
         </span>
-        <span class="text-lg text-white mt-0 cormorant-garamond-semibold"> <!-- Cor mantida branca para "Móveis Planejados" -->
+        <span class="text-lg text-white mt-0 cormorant-garamond-semibold">
           Móveis Planejados
         </span>
       </div>
     </div>
+    <!-- Menu de Hambúrguer (Mobile) -->
+    <div class="menu-toggle md:hidden" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i> <!-- Ícone do menu de hambúrguer -->
+    </div>
+    <!-- Menu Mobile -->
+    <nav id="mobile-menu">
+      <a href="tela.html">Tela inicial</a>
+      <a href="cozinha.html">Cozinha</a>
+      <a href="quarto.html">Quarto</a>
+      <a href="sala.html">Sala</a>
+      <a href="banheiro.html">Banheiro</a>
+      <a href="projeto.html">Projeto 3D</a>
+      <a href="outros.html">Outros</a>
+    </nav>
+    <!-- Menu Desktop -->
     <div class="hidden md:flex space-x-8">
       <a href="tela.html">Tela inicial</a>
       <a href="cozinha.html">Cozinha</a>
@@ -306,5 +351,13 @@
       </div>
     </div>
   </main>
+
+  <script>
+    // Função para alternar o menu mobile
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
