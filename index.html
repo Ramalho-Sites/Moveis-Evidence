@@ -61,9 +61,10 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
-      text-align: center;
+      align-items: flex-start; /* Alinhar à esquerda */
+      text-align: left; /* Texto alinhado à esquerda */
       padding: 20px;
+      padding-left: 10%; /* Margem à esquerda */
     }
     .section-black {
       background-color: black;
@@ -74,13 +75,14 @@
       color: white;
     }
     .section-orange h2 {
-      font-size: 3rem;
+      font-size: 4rem; /* Título maior */
       margin-bottom: 20px;
     }
     .section-orange p {
       font-size: 1.2rem;
       max-width: 600px;
-      margin: 0 auto;
+      margin: 0;
+      opacity: 0.8; /* Texto com menor opacidade */
       line-height: 1.6; /* Espaçamento entre linhas */
     }
   </style>
@@ -129,8 +131,8 @@
   <!-- Seção laranja (Sobre) -->
   <section id="sobre" class="section section-orange">
     <h2 class="text-5xl font-bold cormorant-garamond-semibold">SOBRE</h2>
-    <div class="mt-6 text-lg max-w-2xl text-center">
-      <p>Fundado em 2021, nós passamos de um estúdio de design local para uma equipe de consultoria especializada em estratégias e design de móveis.</p>
+    <div class="mt-6 text-lg max-w-2xl">
+      <p>Fundado em 2021, nós passamos de um estúdio de design local para uma equipe de consultoria especializada em estratégias e design de marcas.</p>
       <p class="mt-4">Isso nos permitiu trabalhar com empresas pequenas e grandes de diversos setores dentro e fora do país.</p>
     </div>
   </section>
