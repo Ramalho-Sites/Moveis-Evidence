@@ -52,7 +52,7 @@
       max-width: 80%;
       max-height: 80%;
     }
-    .lightbox:target {
+    .lightbox.active {
       display: flex;
     }
     .lightbox-close {
@@ -124,213 +124,166 @@
       <!-- Item 1 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox1">
+          <a href="#lightbox1" onclick="openLightbox(1)">
             <img src="imagens/cozinha.html/1.jpg" alt="Cozinha 1"/>
           </a>
         </div>
-      </div>
-      <!-- Lightbox 1 -->
-      <div id="lightbox1" class="lightbox">
-        <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-        <span class="lightbox-nav left" onclick="navigateLightbox(-1)">&#10094;</span>
-        <span class="lightbox-nav right" onclick="navigateLightbox(1)">&#10095;</span>
-        <img src="imagens/cozinha.html/1.jpg" alt="Cozinha 1"/>
       </div>
 
       <!-- Item 2 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox2">
+          <a href="#lightbox2" onclick="openLightbox(2)">
             <img src="imagens/cozinha.html/2.jpg" alt="Cozinha 2"/>
           </a>
         </div>
-      </div>
-      <!-- Lightbox 2 -->
-      <div id="lightbox2" class="lightbox">
-        <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-        <span class="lightbox-nav left" onclick="navigateLightbox(-1)">&#10094;</span>
-        <span class="lightbox-nav right" onclick="navigateLightbox(1)">&#10095;</span>
-        <img src="imagens/cozinha.html/2.jpg" alt="Cozinha 2"/>
       </div>
 
       <!-- Item 3 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox3">
+          <a href="#lightbox3" onclick="openLightbox(3)">
             <img src="imagens/cozinha.html/3.jpg" alt="Cozinha 3"/>
           </a>
         </div>
-      </div>
-      <!-- Lightbox 3 -->
-      <div id="lightbox3" class="lightbox">
-        <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-        <span class="lightbox-nav left" onclick="navigateLightbox(-1)">&#10094;</span>
-        <span class="lightbox-nav right" onclick="navigateLightbox(1)">&#10095;</span>
-        <img src="imagens/cozinha.html/3.jpg" alt="Cozinha 3"/>
       </div>
 
       <!-- Item 4 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox4">
+          <a href="#lightbox4" onclick="openLightbox(4)">
             <img src="imagens/cozinha.html/4.jpg" alt="Cozinha 4"/>
           </a>
         </div>
-      </div>
-      <!-- Lightbox 4 -->
-      <div id="lightbox4" class="lightbox">
-        <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-        <span class="lightbox-nav left" onclick="navigateLightbox(-1)">&#10094;</span>
-        <span class="lightbox-nav right" onclick="navigateLightbox(1)">&#10095;</span>
-        <img src="imagens/cozinha.html/4.jpg" alt="Cozinha 4"/>
       </div>
 
       <!-- Item 5 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox5">
+          <a href="#lightbox5" onclick="openLightbox(5)">
             <img src="imagens/cozinha.html/5.jpg" alt="Cozinha 5"/>
           </a>
         </div>
-      </div>
-      <!-- Lightbox 5 -->
-      <div id="lightbox5" class="lightbox">
-        <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-        <span class="lightbox-nav left" onclick="navigateLightbox(-1)">&#10094;</span>
-        <span class="lightbox-nav right" onclick="navigateLightbox(1)">&#10095;</span>
-        <img src="imagens/cozinha.html/5.jpg" alt="Cozinha 5"/>
       </div>
 
       <!-- Item 6 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox6">
+          <a href="#lightbox6" onclick="openLightbox(6)">
             <img src="imagens/cozinha.html/6.jpg" alt="Cozinha 6"/>
           </a>
         </div>
-      </div>
-      <!-- Lightbox 6 -->
-      <div id="lightbox6" class="lightbox">
-        <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-        <span class="lightbox-nav left" onclick="navigateLightbox(-1)">&#10094;</span>
-        <span class="lightbox-nav right" onclick="navigateLightbox(1)">&#10095;</span>
-        <img src="imagens/cozinha.html/6.jpg" alt="Cozinha 6"/>
       </div>
 
       <!-- Item 7 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox7">
+          <a href="#lightbox7" onclick="openLightbox(7)">
             <img src="imagens/cozinha.html/7.jpg" alt="Cozinha 7"/>
           </a>
         </div>
-      </div>
-      <!-- Lightbox 7 -->
-      <div id="lightbox7" class="lightbox">
-        <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-        <span class="lightbox-nav left" onclick="navigateLightbox(-1)">&#10094;</span>
-        <span class="lightbox-nav right" onclick="navigateLightbox(1)">&#10095;</span>
-        <img src="imagens/cozinha.html/7.jpg" alt="Cozinha 7"/>
       </div>
 
       <!-- Item 8 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox8">
+          <a href="#lightbox8" onclick="openLightbox(8)">
             <img src="imagens/cozinha.html/8.jpg" alt="Cozinha 8"/>
           </a>
         </div>
-      </div>
-      <!-- Lightbox 8 -->
-      <div id="lightbox8" class="lightbox">
-        <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-        <span class="lightbox-nav left" onclick="navigateLightbox(-1)">&#10094;</span>
-        <span class="lightbox-nav right" onclick="navigateLightbox(1)">&#10095;</span>
-        <img src="imagens/cozinha.html/8.jpg" alt="Cozinha 8"/>
       </div>
 
       <!-- Item 9 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox9">
+          <a href="#lightbox9" onclick="openLightbox(9)">
             <img src="imagens/cozinha.html/9.jpg" alt="Cozinha 9"/>
           </a>
         </div>
-      </div>
-      <!-- Lightbox 9 -->
-      <div id="lightbox9" class="lightbox">
-        <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-        <span class="lightbox-nav left" onclick="navigateLightbox(-1)">&#10094;</span>
-        <span class="lightbox-nav right" onclick="navigateLightbox(1)">&#10095;</span>
-        <img src="imagens/cozinha.html/9.jpg" alt="Cozinha 9"/>
       </div>
 
       <!-- Item 10 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox10">
+          <a href="#lightbox10" onclick="openLightbox(10)">
             <img src="imagens/cozinha.html/10.JPG" alt="Cozinha 10"/>
           </a>
         </div>
-      </div>
-      <!-- Lightbox 10 -->
-      <div id="lightbox10" class="lightbox">
-        <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-        <span class="lightbox-nav left" onclick="navigateLightbox(-1)">&#10094;</span>
-        <span class="lightbox-nav right" onclick="navigateLightbox(1)">&#10095;</span>
-        <img src="imagens/cozinha.html/10.JPG" alt="Cozinha 10"/>
       </div>
 
       <!-- Item 11 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox11">
+          <a href="#lightbox11" onclick="openLightbox(11)">
             <img src="imagens/cozinha.html/11.jpg" alt="Cozinha 11"/>
           </a>
         </div>
-      </div>
-      <!-- Lightbox 11 -->
-      <div id="lightbox11" class="lightbox">
-        <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-        <span class="lightbox-nav left" onclick="navigateLightbox(-1)">&#10094;</span>
-        <span class="lightbox-nav right" onclick="navigateLightbox(1)">&#10095;</span>
-        <img src="imagens/cozinha.html/11.jpg" alt="Cozinha 11"/>
       </div>
 
       <!-- Item 12 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox12">
+          <a href="#lightbox12" onclick="openLightbox(12)">
             <img src="imagens/cozinha.html/12.jpg" alt="Cozinha 12"/>
           </a>
         </div>
       </div>
-      <!-- Lightbox 12 -->
-      <div id="lightbox12" class="lightbox">
-        <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-        <span class="lightbox-nav left" onclick="navigateLightbox(-1)">&#10094;</span>
-        <span class="lightbox-nav right" onclick="navigateLightbox(1)">&#10095;</span>
-        <img src="imagens/cozinha.html/12.jpg" alt="Cozinha 12"/>
-      </div>
     </div>
   </main>
 
-  <script>
-    // Função para navegar entre as imagens no lightbox
-    function navigateLightbox(direction) {
-      const lightboxes = document.querySelectorAll('.lightbox');
-      let currentIndex = Array.from(lightboxes).findIndex(lightbox => lightbox.style.display === 'flex');
-      let newIndex = currentIndex + direction;
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <span class="lightbox-nav left" onclick="navigateLightbox(-1)">&#10094;</span>
+    <span class="lightbox-nav right" onclick="navigateLightbox(1)">&#10095;</span>
+    <img id="lightbox-img" src="" alt="Cozinha" />
+  </div>
 
-      // Verifica se o novo índice está dentro dos limites
-      if (newIndex < 0) {
-        newIndex = lightboxes.length - 1;
-      } else if (newIndex >= lightboxes.length) {
-        newIndex = 0;
+  <script>
+    let currentIndex = 0;
+    const images = [
+      "imagens/cozinha.html/1.jpg",
+      "imagens/cozinha.html/2.jpg",
+      "imagens/cozinha.html/3.jpg",
+      "imagens/cozinha.html/4.jpg",
+      "imagens/cozinha.html/5.jpg",
+      "imagens/cozinha.html/6.jpg",
+      "imagens/cozinha.html/7.jpg",
+      "imagens/cozinha.html/8.jpg",
+      "imagens/cozinha.html/9.jpg",
+      "imagens/cozinha.html/10.JPG",
+      "imagens/cozinha.html/11.jpg",
+      "imagens/cozinha.html/12.jpg"
+    ];
+
+    // Função para abrir o lightbox
+    function openLightbox(index) {
+      currentIndex = index - 1; // Ajusta o índice para começar em 0
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = images[currentIndex];
+      lightbox.classList.add('active');
+    }
+
+    // Função para fechar o lightbox
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.remove('active');
+    }
+
+    // Função para navegar entre as imagens
+    function navigateLightbox(direction) {
+      currentIndex += direction;
+
+      // Verifica se o índice está dentro dos limites
+      if (currentIndex < 0) {
+        currentIndex = images.length - 1;
+      } else if (currentIndex >= images.length) {
+        currentIndex = 0;
       }
 
-      // Fecha o lightbox atual e abre o próximo
-      window.location.href = `#lightbox${newIndex + 1}`;
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = images[currentIndex];
     }
   </script>
 </body>
