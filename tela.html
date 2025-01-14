@@ -50,7 +50,8 @@
     .nav-links {
       display: flex;
       gap: 40px; /* Espaçamento entre os links */
-      margin-right: 20px; /* Reduzi a margem direita para mover os links mais para a esquerda */
+      margin-right: 0; /* Removi a margem direita */
+      margin-left: 20px; /* Adicionei margem à esquerda para mover os links mais para a esquerda */
     }
     .nav-links a {
       text-decoration: none;
@@ -196,6 +197,17 @@
       const menu = document.getElementById('mobile-menu');
       menu.classList.toggle('active');
     }
+
+    // Função para fechar o menu mobile ao clicar em um link
+    function closeMenuOnClick() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.remove('active'); // Fecha o menu
+    }
+
+    // Adiciona o evento de clique para fechar o menu
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', closeMenuOnClick);
+    });
 
     // Função de easing para rolagem suave
     function easeInOutQuad(t) {
