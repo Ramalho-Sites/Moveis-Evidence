@@ -14,16 +14,22 @@
     .text-glow {
       text-shadow: 0 0 10px rgba(255, 140, 0, 0.7);
     }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 10px 20px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
     .logo-wrapper {
       display: flex;
       align-items: center;
-      position: absolute;
-      top: 50%; /* Centraliza verticalmente */
-      left: 20px; /* Ajuste horizontal */
-      transform: translateY(-50%); /* Compensa o deslocamento para centralizar */
     }
     .logo-wrapper img {
-      height: 80px; /* Tamanho da logo */
+      height: 60px; /* Tamanho da logo */
       margin-right: 10px;
     }
     .nav-link {
@@ -41,38 +47,40 @@
   </style>
 </head>
 <body class="bg-black text-white flex flex-col items-center justify-center min-h-screen relative">
-  <!-- Logo e Títulos -->
-  <div class="logo-wrapper">
-    <img src="imagens/logo.png" alt="Logo"/>
-    <div class="flex flex-col">
-      <span class="text-2xl font-bold text-[#FF8C00] cormorant-garamond-semibold">
-        Móveis Evidence
-      </span>
-      <span class="text-lg text-white mt-0 cormorant-garamond-semibold">
-        Móveis Planejados
-      </span>
+  <!-- Cabeçalho -->
+  <header class="header">
+    <!-- Logo e Títulos -->
+    <div class="logo-wrapper">
+      <img src="imagens/logo.png" alt="Logo"/>
+      <div class="flex flex-col">
+        <span class="text-2xl font-bold text-[#FF8C00] cormorant-garamond-semibold">
+          Móveis Evidence
+        </span>
+        <span class="text-lg text-white mt-0 cormorant-garamond-semibold">
+          Móveis Planejados
+        </span>
+      </div>
     </div>
-  </div>
-  <!-- Navegação -->
-  <nav class="flex items-center justify-center p-6 w-full max-w-6xl z-10">
-    <div class="hidden md:flex space-x-8">
+    <!-- Navegação -->
+    <nav class="flex space-x-8">
       <a class="nav-link" href="tela.html">Tela inicial</a>
       <a class="nav-link" href="cozinha.html">Cozinha</a>
       <a class="nav-link" href="quarto.html">Quarto</a>
-      <a class="nav-link" href="sala.html">Sala</a>  
+      <a class="nav-link" href="sala.html">Sala</a>
       <a class="nav-link" href="banheiro.html">Banheiro</a>
       <a class="nav-link" href="projeto.html">Projetos 3D</a>
       <a class="nav-link" href="outros.html">Outros</a>
-    </div>
-  </nav>
-  <!-- Cabeçalho -->
-  <header class="flex flex-col items-center justify-center text-center flex-grow z-10">
+    </nav>
+  </header>
+  <!-- Texto Principal -->
+  <main class="flex flex-col items-center justify-center text-center flex-grow z-10">
     <h1 class="text-6xl md:text-7xl font-bold mb-4 text-orange-500 text-glow cormorant-garamond-semibold">
       "FABRICANDO SONHOS SOB MEDIDA."
     </h1>
     <p class="text-lg md:text-xl text-gray-400 mb-8">
       by Julio Ramalho
     </p>
+    <!-- Contatos -->
     <div class="flex space-x-4">
       <a class="text-white hover:text-orange-500 flex items-center space-x-2 text-xl md:text-2xl" href="https://www.instagram.com/moveis_evidence" target="_blank">
         <i class="fab fa-instagram"></i>
@@ -83,6 +91,6 @@
         <span>(61) 98426-8735</span>
       </a>
     </div>
-  </header>
+  </main>
 </body>
 </html>
