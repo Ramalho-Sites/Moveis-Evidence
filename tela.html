@@ -33,7 +33,7 @@
       align-items: center;
     }
     .logo-wrapper img {
-      height: 90px; /* Ajuste do tamanho da logo */
+      height: 90px;
       margin-right: 10px;
     }
     .nav-links {
@@ -50,19 +50,31 @@
     .nav-links a:hover {
       color: #FF8C00;
     }
+    .section-orange {
+      background-color: #FF8C00;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .section-orange h2 {
+      font-size: 3rem;
+      color: white;
+      margin-bottom: 20px;
+    }
+    .section-orange p {
+      font-size: 1.2rem;
+      color: white;
+    }
   </style>
 </head>
 <body class="bg-black text-white flex flex-col items-center justify-center min-h-screen relative">
   <header class="header">
-    <!-- Logo e textos -->
     <div class="logo-wrapper">
-      <img src="imagens/logo.png" alt="Logo" class="relative left-10"/> <!-- Margem aplicada aqui -->
+      <img src="imagens/logo.png" alt="Logo" class="relative left-10"/>
       <div>
         <span class="text-4xl font-bold text-[#FF8C00] block cormorant-garamond-semibold">Móveis Evidence</span>
         <span class="text-xl text-white block cormorant-garamond-semibold">Móveis Planejados</span>
       </div>
     </div>
-    <!-- Links do menu -->
     <nav class="nav-links">
       <a href="tela.html">Tela inicial</a>
       <a href="cozinha.html">Cozinha</a>
@@ -71,9 +83,9 @@
       <a href="banheiro.html">Banheiro</a>
       <a href="projeto.html">Projetos 3D</a>
       <a href="outros.html">Outros</a>
+      <a href="#sobre">Sobre</a>
     </nav>
   </header>
-  <!-- Conteúdo principal -->
   <main class="flex flex-col items-center justify-center text-center flex-grow">
     <h1 class="text-6xl md:text-7xl font-bold mb-4 text-orange-500 text-glow cormorant-garamond-semibold">
       FABRICAMOS SONHOS <br> SOB MEDIDA.
@@ -92,5 +104,10 @@
       </a>
     </div>
   </main>
+  <section id="sobre" class="section-orange">
+    <h2>SOBRE</h2>
+    <p>Fundado em 2021, nós passamos de um estúdio de design local para uma equipe de consultoria especializada em estratégias e design de móveis.</p>
+    <p>Isso nos permitiu trabalhar com empresas pequenas e grandes de diversos setores dentro e fora do país.</p>
+  </section>
 </body>
 </html>
