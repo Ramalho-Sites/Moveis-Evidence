@@ -44,7 +44,7 @@
       align-items: center;
     }
     .logo-wrapper img {
-      height: 90px;
+      height: 90px; /* Tamanho da logo no PC */
       margin-right: 10px; /* Espaçamento padrão entre a logo e o texto */
     }
     .nav-links {
@@ -56,7 +56,7 @@
     .nav-links a {
       text-decoration: none;
       font-size: 1.1rem;
-      color: white;
+      color: white; /* Cor dos links no PC */
       transition: color 0.3s;
     }
     .nav-links a:hover {
@@ -96,13 +96,11 @@
     /* Ajustes para mobile */
     @media (max-width: 768px) {
       .logo-wrapper img {
+        height: 100px; /* Aumentei o tamanho da logo no mobile */
         margin-right: 30px; /* Aumenta o espaço entre a logo e o texto no mobile */
       }
       .logo-wrapper {
         margin-left: 20px; /* Move a logo para a direita no mobile */
-      }
-      .logo-wrapper img {
-        height: 60px; /* Reduz o tamanho da logo no mobile */
       }
       .nav-links {
         display: none; /* Oculta os links no mobile */
