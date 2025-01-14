@@ -10,6 +10,9 @@
   <style>
     body {
       font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
     }
     .text-glow {
       text-shadow: 0 0 10px rgba(255, 140, 0, 0.7);
@@ -23,10 +26,12 @@
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      position: absolute;
+      position: fixed; /* Fixa o header no topo */
       top: 0;
       left: 0;
       padding: 20px;
+      z-index: 1000; /* Garante que o header fique acima de tudo */
+      background-color: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente */
     }
     .logo-wrapper {
       display: flex;
@@ -50,23 +55,35 @@
     .nav-links a:hover {
       color: #FF8C00;
     }
+    .section {
+      height: 100vh; /* Cada seção ocupa 100% da altura da tela */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .section-black {
+      background-color: black;
+      color: white;
+    }
     .section-orange {
       background-color: #FF8C00;
-      padding: 60px 20px;
-      text-align: center;
+      color: white;
     }
     .section-orange h2 {
       font-size: 3rem;
-      color: white;
       margin-bottom: 20px;
     }
     .section-orange p {
       font-size: 1.2rem;
-      color: white;
+      max-width: 600px;
+      margin: 0 auto;
     }
   </style>
 </head>
-<body class="bg-black text-white flex flex-col items-center justify-center min-h-screen relative">
+<body>
   <header class="header">
     <div class="logo-wrapper">
       <img src="imagens/logo.png" alt="Logo" class="relative left-10"/>
@@ -86,7 +103,9 @@
       <a href="#sobre">Sobre</a>
     </nav>
   </header>
-  <main class="flex flex-col items-center justify-center text-center flex-grow">
+
+  <!-- Seção preta (inicial) -->
+  <section class="section section-black">
     <h1 class="text-6xl md:text-7xl font-bold mb-4 text-orange-500 text-glow cormorant-garamond-semibold">
       FABRICAMOS SONHOS <br> SOB MEDIDA.
     </h1>
@@ -103,11 +122,13 @@
         <span>(61) 98426-8735</span>
       </a>
     </div>
-  </main>
-  <section id="sobre" class="section-orange">
-    <h2>SOBRE</h2>
-    <p>Fundado em 2021, nós passamos de um estúdio de design local para uma equipe de consultoria especializada em estratégias e design de móveis.</p>
-    <p>Isso nos permitiu trabalhar com empresas pequenas e grandes de diversos setores dentro e fora do país.</p>
+  </section>
+
+  <!-- Seção laranja (Sobre) -->
+  <section id="sobre" class="section section-orange">
+    <h2 class="text-5xl font-bold">SOBRE</h2>
+    <p class="mt-4">Fundado em 2021, nós passamos de um estúdio de design local para uma equipe de consultoria especializada em estratégias e design de móveis.</p>
+    <p class="mt-2">Isso nos permitiu trabalhar com empresas pequenas e grandes de diversos setores dentro e fora do país.</p>
   </section>
 </body>
 </html>
