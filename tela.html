@@ -50,7 +50,7 @@
     .nav-links {
       display: flex;
       gap: 30px; /* Espaçamento entre os links */
-      margin-right: 30px;
+      margin-right: 10px; /* Reduzi a margem direita para mover os links para a esquerda */
     }
     .nav-links a {
       text-decoration: none;
@@ -106,7 +106,7 @@
     <nav class="nav-links">
       <a href="#tela-inicial" id="tela-inicial-link">Tela inicial</a>
       <a href="#sobre" id="sobre-link">Sobre</a>
-      <a href="projeto.html" id="projetos-link">Projetos</a> <!-- Link para projeto.html -->
+      <a href="cozinha.html" id="projetos-link">Projetos</a> <!-- Link para cozinha.html -->
     </nav>
   </header>
 
@@ -192,7 +192,7 @@
 
     // Removendo o event listener do link "Projetos" para redirecionar diretamente
     document.getElementById('projetos-link').addEventListener('click', function (e) {
-      // Não é necessário preventDefault, pois queremos redirecionar para projeto.html
+      // Não é necessário preventDefault, pois queremos redirecionar para cozinha.html
     });
   </script>
 </body>
