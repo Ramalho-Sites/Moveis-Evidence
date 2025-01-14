@@ -6,6 +6,7 @@
   <title>Móveis Evidence</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet"/>
   <style>
     body {
@@ -21,6 +22,10 @@
     .cormorant-garamond-semibold {
       font-family: "Cormorant Garamond", serif;
       font-weight: 600;
+    }
+    .raleway-regular {
+      font-family: "Raleway", serif;
+      font-weight: 400;
     }
     .header {
       display: flex;
@@ -44,7 +49,7 @@
     }
     .nav-links {
       display: flex;
-      gap: 20px;
+      gap: 30px; /* Espaçamento entre os links */
       margin-right: 30px;
     }
     .nav-links a {
@@ -77,12 +82,14 @@
     .section-orange h2 {
       font-size: 4rem; /* Título maior */
       margin-bottom: 20px;
+      font-family: "Raleway", serif; /* Aplicando Raleway ao título */
+      font-weight: 400;
     }
     .section-orange p {
       font-size: 1.2rem;
       max-width: 600px;
       margin: 0;
-      opacity: 0.8; /* Texto com menor opacidade */
+      color: rgba(255, 255, 255, 0.8); /* Branco com 80% de opacidade */
       line-height: 1.6; /* Espaçamento entre linhas */
     }
   </style>
@@ -97,19 +104,14 @@
       </div>
     </div>
     <nav class="nav-links">
-      <a href="tela.html">Tela inicial</a>
-      <a href="cozinha.html">Cozinha</a>
-      <a href="quarto.html">Quarto</a>
-      <a href="sala.html">Sala</a>
-      <a href="banheiro.html">Banheiro</a>
-      <a href="projeto.html">Projetos 3D</a>
-      <a href="outros.html">Outros</a>
-      <a href="#sobre">Sobre</a>
+      <a href="#tela-inicial" id="tela-inicial-link">Tela inicial</a>
+      <a href="#sobre" id="sobre-link">Sobre</a>
+      <a href="projeto.html" id="projetos-link">Projetos</a> <!-- Link para projeto.html -->
     </nav>
   </header>
 
   <!-- Seção preta (inicial) -->
-  <section class="section section-black">
+  <section id="tela-inicial" class="section section-black">
     <h1 class="text-6xl md:text-7xl font-bold mb-4 text-orange-500 text-glow cormorant-garamond-semibold">
       FABRICAMOS SONHOS <br> SOB MEDIDA.
     </h1>
@@ -130,11 +132,68 @@
 
   <!-- Seção laranja (Sobre) -->
   <section id="sobre" class="section section-orange">
-    <h2 class="text-5xl font-bold cormorant-garamond-semibold">SOBRE</h2>
+    <h2 class="text-5xl font-bold raleway-regular">SOBRE</h2>
     <div class="mt-6 text-lg max-w-2xl">
       <p>Fundado em 2021, nós passamos de um estúdio de design local para uma equipe de consultoria especializada em estratégias e design de marcas.</p>
       <p class="mt-4">Isso nos permitiu trabalhar com empresas pequenas e grandes de diversos setores dentro e fora do país.</p>
     </div>
   </section>
+
+  <!-- Seção de Projetos -->
+  <section id="projetos" class="section section-black">
+    <h2 class="text-5xl font-bold raleway-regular">PROJETOS</h2>
+    <div class="mt-6 text-lg max-w-2xl">
+      <p>Confira nossos projetos personalizados e veja como transformamos ideias em realidade.</p>
+      <p class="mt-4">Cada projeto é único e feito sob medida para atender às necessidades dos nossos clientes.</p>
+    </div>
+  </section>
+
+  <script>
+    // Função de easing para rolagem suave
+    function easeInOutQuad(t) {
+      return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    }
+
+    // Função para rolagem suave personalizada
+    function smoothScroll(targetId) {
+      const targetSection = document.getElementById(targetId);
+      const startPosition = window.pageYOffset;
+      const targetPosition = targetSection.offsetTop;
+      const distance = targetPosition - startPosition;
+      const duration = 1000; // Duração da animação em milissegundos (1 segundo)
+      let startTime = null;
+
+      function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+        const easeProgress = easeInOutQuad(progress);
+        window.scrollTo(0, startPosition + distance * easeProgress);
+
+        if (timeElapsed < duration) {
+          requestAnimationFrame(animation);
+        }
+      }
+
+      requestAnimationFrame(animation);
+    }
+
+    // Adicionando rolagem suave ao link "Sobre"
+    document.getElementById('sobre-link').addEventListener('click', function (e) {
+      e.preventDefault(); // Evita o comportamento padrão do link
+      smoothScroll('sobre');
+    });
+
+    // Adicionando rolagem suave ao link "Tela inicial"
+    document.getElementById('tela-inicial-link').addEventListener('click', function (e) {
+      e.preventDefault(); // Evita o comportamento padrão do link
+      smoothScroll('tela-inicial');
+    });
+
+    // Removendo o event listener do link "Projetos" para redirecionar diretamente
+    document.getElementById('projetos-link').addEventListener('click', function (e) {
+      // Não é necessário preventDefault, pois queremos redirecionar para projeto.html
+    });
+  </script>
 </body>
 </html>
