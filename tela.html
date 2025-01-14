@@ -41,11 +41,11 @@
   </style>
 </head>
 <body class="bg-black text-white flex flex-col items-center justify-center min-h-screen relative">
-  <header class="header">
-    <div class="logo-wrapper">
-      <img src="imagens/logo.png" alt="Logo"/>
+  <nav class="flex items-center justify-between p-6 w-full max-w-6xl z-10">
+    <div class="flex items-center space-x-0">
+      <img src="imagens/logo.png" alt="Logo" class="h-20 logo-custom"/> <!-- Ajuste de posição -->
       <div class="flex flex-col">
-        <span class="text-2xl font-bold text-[#FF8C00] cormorant-garamond-semibold">
+        <span class="text-4xl font-bold text-[#FF8C00] cormorant-garamond-semibold">
           Móveis Evidence
         </span>
         <span class="text-lg text-white mt-0 cormorant-garamond-semibold">
@@ -53,7 +53,7 @@
         </span>
       </div>
     </div>
-    <div class="flex space-x-8">
+    <div class="hidden md:flex space-x-8">
       <a class="text-white hover:text-orange-500" href="tela.html">Tela inicial</a>
       <a class="text-white hover:text-orange-500" href="cozinha.html">Cozinha</a>
       <a class="text-white hover:text-orange-500" href="quarto.html">Quarto</a>
