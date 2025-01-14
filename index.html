@@ -21,6 +21,7 @@
       font-weight: 600;
       font-style: normal;
     }
+    }
     .header {
       display: flex;
       justify-content: space-between;
@@ -34,19 +35,17 @@
     .logo-wrapper {
       display: flex;
       align-items: center;
-      margin-left: -10px; /* Move a logo mais para a esquerda */
     }
     .logo-wrapper img {
       height: 60px; /* Tamanho da logo */
       margin-right: 10px;
-    }
   </style>
 </head>
 <body class="bg-black text-white flex flex-col items-center justify-center min-h-screen relative">
   <nav class="flex items-center justify-between p-6 w-full max-w-6xl z-10">
-    <div class="logo-wrapper flex items-center"> <!-- Logo movida mais para a esquerda -->
-      <img src="imagens/logo.png" alt="Logo" class="h-20"/> <!-- Logo ajustada -->
-      <div class="flex flex-col ml-4"> <!-- Texto ajustado -->
+    <div class="flex items-center space-x-0">
+      <img src="imagens/logo.png" alt="Logo" class="h-20 logo-custom"/> <!-- Ajuste de posição -->
+      <div class="flex flex-col">
         <span class="text-4xl font-bold text-[#FF8C00] cormorant-garamond-semibold">
           Móveis Evidence
         </span>
