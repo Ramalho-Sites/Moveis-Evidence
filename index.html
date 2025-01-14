@@ -49,8 +49,8 @@
     }
     .nav-links {
       display: flex;
-      gap: 40px; /* Aumentei o espaçamento entre os links */
-      margin-right: 80px; /* Aumentei a margem direita para mover os links mais para a direita */
+      gap: 40px; /* Espaçamento entre os links */
+      margin-right: 80px; /* Margem direita para mover os links mais para a direita */
     }
     .nav-links a {
       text-decoration: none;
@@ -139,14 +139,17 @@
         <span class="text-xl text-white block cormorant-garamond-semibold">Móveis Planejados</span>
       </div>
     </div>
+    <!-- Botão do menu de hambúrguer (visível apenas no mobile) -->
     <div class="menu-toggle" onclick="toggleMenu()">
       <i class="fas fa-bars"></i> <!-- Ícone do menu de hambúrguer -->
     </div>
+    <!-- Links de navegação (visíveis apenas no PC) -->
     <nav class="nav-links">
       <a href="#tela-inicial" id="tela-inicial-link">Tela inicial</a>
       <a href="#sobre" id="sobre-link">Sobre</a>
       <a href="cozinha.html" id="projetos-link">Projetos</a> <!-- Link para cozinha.html -->
     </nav>
+    <!-- Menu mobile (visível apenas no mobile) -->
     <nav id="mobile-menu">
       <a href="#tela-inicial" id="tela-inicial-link-mobile">Tela inicial</a>
       <a href="#sobre" id="sobre-link-mobile">Sobre</a>
