@@ -45,12 +45,12 @@
     }
     .logo-wrapper img {
       height: 90px;
-      margin-right: 10px; /* Espaçamento padrão entre a logo e o texto */
+      margin-right: 10px;
     }
     .nav-links {
       display: flex;
-      gap: 40px; /* Espaçamento entre os links */
-      margin-right: 10px; /* Reduzi ainda mais a margem direita para mover os links mais para a esquerda */
+      gap: 40px; /* Aumentei o espaçamento entre os links */
+      margin-right: 80px; /* Aumentei a margem direita para mover os links mais para a direita */
     }
     .nav-links a {
       text-decoration: none;
@@ -59,7 +59,7 @@
       transition: color 0.3s;
     }
     .nav-links a:hover {
-      color: #FF8C00; /* Efeito de hover nos links (PC) */
+      color: #FF8C00;
     }
     .section {
       height: 100vh; /* Cada seção ocupa 100% da altura da tela */
@@ -94,15 +94,11 @@
     }
     /* Ajustes para mobile */
     @media (max-width: 768px) {
-      .header {
-        padding: 10px; /* Reduz o padding do header no mobile */
-      }
       .logo-wrapper {
-        margin-left: 0; /* Remove a margem esquerda da logo no mobile */
+        margin-left: 20px; /* Move a logo para a direita no mobile */
       }
       .logo-wrapper img {
         height: 60px; /* Reduz o tamanho da logo no mobile */
-        margin-right: 20px; /* Aumenta o espaço entre a logo e o texto no mobile */
       }
       .nav-links {
         display: none; /* Oculta os links no mobile */
@@ -112,20 +108,6 @@
         font-size: 1.5rem;
         color: white;
         cursor: pointer;
-      }
-      #mobile-menu {
-        display: none; /* Oculta o menu mobile por padrão */
-        flex-direction: column;
-        gap: 10px;
-        position: absolute;
-        top: 70px; /* Posiciona o menu abaixo do header */
-        right: 20px;
-        background-color: rgba(0, 0, 0, 0.9);
-        padding: 20px;
-        border-radius: 10px;
-      }
-      #mobile-menu.active {
-        display: flex; /* Mostra o menu mobile quando ativo */
       }
     }
   </style>
@@ -139,21 +121,13 @@
         <span class="text-xl text-white block cormorant-garamond-semibold">Móveis Planejados</span>
       </div>
     </div>
-    <!-- Botão do menu de hambúrguer (visível apenas no mobile) -->
     <div class="menu-toggle" onclick="toggleMenu()">
       <i class="fas fa-bars"></i> <!-- Ícone do menu de hambúrguer -->
     </div>
-    <!-- Links de navegação (visíveis apenas no PC) -->
-    <nav class="nav-links">
+    <nav class="nav-links" id="mobile-menu">
       <a href="#tela-inicial" id="tela-inicial-link">Tela inicial</a>
       <a href="#sobre" id="sobre-link">Sobre</a>
       <a href="cozinha.html" id="projetos-link">Projetos</a> <!-- Link para cozinha.html -->
-    </nav>
-    <!-- Menu mobile (visível apenas no mobile) -->
-    <nav id="mobile-menu">
-      <a href="#tela-inicial" id="tela-inicial-link-mobile">Tela inicial</a>
-      <a href="#sobre" id="sobre-link-mobile">Sobre</a>
-      <a href="cozinha.html" id="projetos-link-mobile">Projetos</a> <!-- Link para cozinha.html -->
     </nav>
   </header>
 
