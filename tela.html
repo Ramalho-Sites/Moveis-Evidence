@@ -3,9 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
-    Móveis Evidence
-  </title>
+  <title>Móveis Evidence</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet"/>
@@ -18,19 +16,11 @@
     .text-glow {
       text-shadow: 0 0 10px rgba(255, 140, 0, 0.7);
     }
-    .blob {
-      position: absolute;
-      background: rgba(255, 140, 0, 0.5);
-      filter: blur(100px);
-      border-radius: 50%;
-    }
-    .blob-large {
-      width: 400px;
-      height: 400px;
-    }
-    .blob-small {
-      width: 200px;
-      height: 200px;
+    .logo-custom {
+      position: relative; /* Ajuste na posição da logo */
+      top: 10px; /* Ajuste para baixo */
+      left: 20px; /* Ajuste para a direita */
+      right: 5px; /* Ajuste para a esquerda */
     }
     .cormorant-garamond-semibold {
       font-family: "Cormorant Garamond", serif;
@@ -40,48 +30,31 @@
   </style>
 </head>
 <body class="bg-black text-white flex flex-col items-center justify-center min-h-screen relative">
-  <div class="blob blob-large" style="top: 20%; left: 30%;"></div>
-  <div class="blob blob-small" style="top: 50%; left: 60%;"></div>
   <nav class="flex items-center justify-between p-6 w-full max-w-6xl z-10">
-    <div class="flex items-center space-x-0"> <!-- Ajuste no espaço entre logo e textos -->
-      <img src="imagens/logo.png" alt="Logo" class="h-20"/>
+    <div class="flex items-center space-x-0">
+      <img src="imagens/logo.png" alt="Logo" class="h-20 logo-custom"/> <!-- Ajuste de posição -->
       <div class="flex flex-col">
-        <span class="text-4xl font-bold text-[#FF8C00] cormorant-garamond-semibold"> <!-- Cor aplicada ao "Móveis Evidence" -->
+        <span class="text-4xl font-bold text-[#FF8C00] cormorant-garamond-semibold">
           Móveis Evidence
         </span>
-        <span class="text-lg text-white mt-0 cormorant-garamond-semibold"> <!-- Cor mantida branca para "Móveis Planejados" -->
+        <span class="text-lg text-white mt-0 cormorant-garamond-semibold">
           Móveis Planejados
         </span>
       </div>
     </div>
     <div class="hidden md:flex space-x-8">
-      <a class="text-white hover:text-orange-500" href="tela.html">
-        Tela inicial
-      </a>
-      <a class="text-white hover:text-orange-500" href="cozinha.html">
-        Cozinha
-      </a>
-      <a class="text-white hover:text-orange-500" href="quarto.html">
-        Quarto
-      </a>
-      <a class="text-white hover:text-orange-500" href="sala.html">
-        Sala
-      </a>  
-      <a class="text-white hover:text-orange-500" href="banheiro.html">
-        Banheiro
-      </a>
-      <a class="text-white hover:text-orange-500" href="projeto.html">
-        Projetos 3D
-      </a>
-      <a class="text-white hover:text-orange-500" href="outros.html">
-        Outros
-      </a>
+      <a class="text-white hover:text-orange-500" href="tela.html">Tela inicial</a>
+      <a class="text-white hover:text-orange-500" href="cozinha.html">Cozinha</a>
+      <a class="text-white hover:text-orange-500" href="quarto.html">Quarto</a>
+      <a class="text-white hover:text-orange-500" href="sala.html">Sala</a>  
+      <a class="text-white hover:text-orange-500" href="banheiro.html">Banheiro</a>
+      <a class="text-white hover:text-orange-500" href="projeto.html">Projetos 3D</a>
+      <a class="text-white hover:text-orange-500" href="outros.html">Outros</a>
     </div>
   </nav>
   <header class="flex flex-col items-center justify-center text-center flex-grow z-10">
     <h1 class="text-6xl md:text-7xl font-bold mb-4 text-orange-500 text-glow cormorant-garamond-semibold">
-       "FABRICANDO SONHOS <b>
-        SOB MEDIDA."
+      "FABRICANDO SONHOS SOB MEDIDA."
     </h1>
     <p class="text-lg md:text-xl text-gray-400 mb-8">
       by Julio Ramalho
@@ -92,7 +65,7 @@
         <span>@moveis_evidence</span>
       </a>
       <a class="text-white hover:text-orange-500 flex items-center space-x-2 text-xl md:text-2xl" href="https://wa.me/5561984268735" target="_blank">
-        <i class="fab fa-whatsapp"></i>
+        <i class="fab fa-whatsapp"></i> <!-- Ícone de WhatsApp -->
         <span>(61) 98426-8735</span>
       </a>
     </div>
