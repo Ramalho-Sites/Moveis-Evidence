@@ -51,7 +51,7 @@
       display: flex;
       gap: 40px; /* Espaçamento entre os links */
       margin-right: 0; /* Removi a margem direita */
-      margin-left: 20px; /* Adicionei margem à esquerda para mover os links mais para a esquerda */
+      margin-left: 0; /* Removi a margem esquerda para mover os links mais para a esquerda */
     }
     .nav-links a {
       text-decoration: none;
@@ -174,7 +174,7 @@
     <p class="text-lg md:text-xl text-gray-400 mb-8">
       by Julio Ramalho
     </p>
-    <div class="flex space-x-4">
+    <div class="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
       <a class="text-white hover:text-orange-500 flex items-center space-x-2 text-xl" href="https://www.instagram.com/moveis_evidence" target="_blank">
         <i class="fab fa-instagram"></i>
         <span>@moveis_evidence</span>
