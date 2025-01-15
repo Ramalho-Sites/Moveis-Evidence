@@ -86,33 +86,35 @@
       font-style: normal;
     }
     /* Menu Mobile */
-    #mobile-menu {
+    .mobile-menu {
       display: none;
-      flex-direction: column;
-      gap: 10px;
-      position: absolute;
-      top: 70px;
-      right: 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background-color: rgba(0, 0, 0, 0.9);
-      padding: 20px;
-      border-radius: 10px;
+      z-index: 1000;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
-    #mobile-menu.active {
-      display: flex;
-    }
-    #mobile-menu a {
+    .mobile-menu a {
       color: white;
+      font-size: 1.5rem;
+      margin: 1rem 0;
       text-decoration: none;
-      font-size: 1.1rem;
     }
-    #mobile-menu a:hover {
+    .mobile-menu a:hover {
       color: #FF8C00;
     }
-    /* Oculta o menu de hambúrguer no PC */
-    @media (min-width: 769px) {
-      .menu-toggle {
-        display: none !important;
-      }
+    .mobile-menu-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -132,34 +134,21 @@
       </div>
     </div>
     <!-- Menu de Hambúrguer (Mobile) -->
-    <div class="menu-toggle md:hidden" onclick="toggleMenu()">
-      <i class="fas fa-bars"></i> <!-- Ícone do menu de hambúrguer -->
-    </div>
-    <!-- Menu Mobile -->
-    <div id="mobileMenu" class="mobile-menu">
-    <i class="fas fa-times mobile-menu-close" onclick="closeMobileMenu()"></i>
-    <a href="tela.html">Tela inicial</a>
-    <a href="cozinha.html">Cozinha</a>
-    <a href="quarto.html">Quarto</a>
-    <a href="sala.html">Sala</a>
-    <a href="banheiro.html">Banheiro</a>
-    <a href="projeto.html">Projeto 3D</a>
-    <a href="outros.html">Outros</a>
-  </div>
-  <main class="p-3">
-    <h2 class="text-4xl font-bold mb-4" style="color: #FF8c00;">Banheiro</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-    <!-- Menu Desktop -->
-    <div class="hidden md:flex space-x-8">
-      <a class="text-white hover:text-orange-500" href="tela.html">Tela inicial</a>
-      <a class="text-white hover:text-orange-500" href="cozinha.html">Cozinha</a>
-      <a class="text-white hover:text-orange-500" href="quarto.html">Quarto</a>
-      <a class="text-white hover:text-orange-500" href="sala.html">Sala</a>
-      <a class="text-white hover:text-orange-500" href="banheiro.html">Banheiro</a>
-      <a class="text-white hover:text-orange-500" href="projeto.html">Projeto 3D</a>
-      <a class="text-white hover:text-orange-500" href="outros.html">Outros</a>
+    <div class="md:hidden">
+      <i class="fas fa-bars text-white text-2xl cursor-pointer" onclick="openMobileMenu()"></i>
     </div>
   </nav>
+  <!-- Menu Mobile -->
+  <div id="mobileMenu" class="mobile-menu">
+    <i class="fas fa-times mobile-menu-close" onclick="closeMobileMenu()"></i>
+    <a href="tela.html" onclick="closeMobileMenu()">Tela inicial</a>
+    <a href="cozinha.html" onclick="closeMobileMenu()">Cozinha</a>
+    <a href="quarto.html" onclick="closeMobileMenu()">Quarto</a>
+    <a href="sala.html" onclick="closeMobileMenu()">Sala</a>
+    <a href="banheiro.html" onclick="closeMobileMenu()">Banheiro</a>
+    <a href="projeto.html" onclick="closeMobileMenu()">Projeto 3D</a>
+    <a href="outros.html" onclick="closeMobileMenu()">Outros</a>
+  </div>
   <main class="p-3">
     <h2 class="text-4xl font-bold mb-4" style="color: #FF8c00;">Sala</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -352,21 +341,17 @@
         <span class="lightbox-close" onclick="window.location='#';">&times;</span>
         <span class="lightbox-nav lightbox-prev" onclick="window.location='#lightbox11';">&#10094;</span>
         <img src="imagens/sala.html/12.jpg" alt="Sala 12"/>
+        <span class="lightbox-nav lightbox-next" onclick="window.location='#lightbox1';">&#10095;</span>
       </div>
     </div>
   </main>
-
   <script>
-    // Função para alternar o menu mobile
-    function toggleMenu() {
-      const menu = document.getElementById('mobile-menu');
-      menu.classList.toggle('active');
+    // Funções para abrir e fechar o menu mobile
+    function openMobileMenu() {
+      document.getElementById('mobileMenu').style.display = 'flex';
     }
-
-    // Função para fechar o menu mobile ao clicar em um link
     function closeMobileMenu() {
-      const menu = document.getElementById('mobile-menu');
-      menu.classList.remove('active');
+      document.getElementById('mobileMenu').style.display = 'none';
     }
   </script>
 </body>
