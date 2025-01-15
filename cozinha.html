@@ -27,7 +27,7 @@
     }
     .image-container {
       width: 100%;
-      height: 350px; /* Define a altura fixa */
+      height: 350px;
       position: relative;
     }
     .image-container img {
@@ -69,15 +69,15 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      color: #fff;
       font-size: 30px;
+      color: #fff;
       cursor: pointer;
       z-index: 1001;
     }
-    .lightbox-prev {
+    .lightbox-nav.left {
       left: 10px;
     }
-    .lightbox-next {
+    .lightbox-nav.right {
       right: 10px;
     }
     .cormorant-garamond-semibold {
@@ -86,33 +86,35 @@
       font-style: normal;
     }
     /* Menu Mobile */
-    #mobile-menu {
+    .mobile-menu {
       display: none;
-      flex-direction: column;
-      gap: 10px;
-      position: absolute;
-      top: 70px;
-      right: 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background-color: rgba(0, 0, 0, 0.9);
-      padding: 20px;
-      border-radius: 10px;
+      z-index: 1000;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
-    #mobile-menu.active {
-      display: flex;
-    }
-    #mobile-menu a {
+    .mobile-menu a {
       color: white;
+      font-size: 1.5rem;
+      margin: 1rem 0;
       text-decoration: none;
-      font-size: 1.1rem;
     }
-    #mobile-menu a:hover {
+    .mobile-menu a:hover {
       color: #FF8C00;
     }
-    /* Oculta o menu de hambúrguer no PC */
-    @media (min-width: 769px) {
-      .menu-toggle {
-        display: none !important;
-      }
+    .mobile-menu-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -132,30 +134,21 @@
       </div>
     </div>
     <!-- Menu de Hambúrguer (Mobile) -->
-    <div class="menu-toggle md:hidden" onclick="toggleMenu()">
-      <i class="fas fa-bars"></i> <!-- Ícone do menu de hambúrguer -->
-    </div>
-    <!-- Menu Mobile -->
-    <nav id="mobile-menu">
-      <a href="tela.html" onclick="closeMobileMenu()">Tela inicial</a>
-      <a href="cozinha.html" onclick="closeMobileMenu()">Cozinha</a>
-      <a href="quarto.html" onclick="closeMobileMenu()">Quarto</a>
-      <a href="sala.html" onclick="closeMobileMenu()">Sala</a>
-      <a href="banheiro.html" onclick="closeMobileMenu()">Banheiro</a>
-      <a href="projeto.html" onclick="closeMobileMenu()">Projeto 3D</a>
-      <a href="outros.html" onclick="closeMobileMenu()">Outros</a>
-    </nav>
-    <!-- Menu Desktop -->
-    <div class="hidden md:flex space-x-8">
-      <a class="text-white hover:text-orange-500" href="tela.html">Tela inicial</a>
-      <a class="text-white hover:text-orange-500" href="cozinha.html">Cozinha</a>
-      <a class="text-white hover:text-orange-500" href="quarto.html">Quarto</a>
-      <a class="text-white hover:text-orange-500" href="sala.html">Sala</a>
-      <a class="text-white hover:text-orange-500" href="banheiro.html">Banheiro</a>
-      <a class="text-white hover:text-orange-500" href="projeto.html">Projeto 3D</a>
-      <a class="text-white hover:text-orange-500" href="outros.html">Outros</a>
+    <div class="md:hidden">
+      <i class="fas fa-bars text-white text-2xl cursor-pointer" onclick="openMobileMenu()"></i>
     </div>
   </nav>
+  <!-- Menu Mobile -->
+  <div id="mobileMenu" class="mobile-menu">
+    <i class="fas fa-times mobile-menu-close" onclick="closeMobileMenu()"></i>
+    <a href="tela.html" onclick="closeMobileMenu()">Tela inicial</a>
+    <a href="cozinha.html" onclick="closeMobileMenu()">Cozinha</a>
+    <a href="quarto.html" onclick="closeMobileMenu()">Quarto</a>
+    <a href="sala.html" onclick="closeMobileMenu()">Sala</a>
+    <a href="banheiro.html" onclick="closeMobileMenu()">Banheiro</a>
+    <a href="projeto.html" onclick="closeMobileMenu()">Projeto 3D</a>
+    <a href="outros.html" onclick="closeMobileMenu()">Outros</a>
+  </div>
   <main class="p-3">
     <h2 class="text-4xl font-bold mb-4" style="color: #FF8c00;">Cozinha</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -170,9 +163,9 @@
       <!-- Lightbox 1 -->
       <div id="lightbox1" class="lightbox">
         <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+        <span class="lightbox-nav left" onclick="window.location='#lightbox12';">&#10094;</span>
         <img src="imagens/cozinha.html/1.jpg" alt="Cozinha 1"/>
-        <a href="#lightbox12" class="lightbox-nav lightbox-prev">&#10094;</a>
-        <a href="#lightbox2" class="lightbox-nav lightbox-next">&#10095;</a>
+        <span class="lightbox-nav right" onclick="window.location='#lightbox2';">&#10095;</span>
       </div>
 
       <!-- Item 2 -->
@@ -186,9 +179,9 @@
       <!-- Lightbox 2 -->
       <div id="lightbox2" class="lightbox">
         <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+        <span class="lightbox-nav left" onclick="window.location='#lightbox1';">&#10094;</span>
         <img src="imagens/cozinha.html/2.jpg" alt="Cozinha 2"/>
-        <a href="#lightbox1" class="lightbox-nav lightbox-prev">&#10094;</a>
-        <a href="#lightbox3" class="lightbox-nav lightbox-next">&#10095;</a>
+        <span class="lightbox-nav right" onclick="window.location='#lightbox3';">&#10095;</span>
       </div>
 
       <!-- Item 3 -->
@@ -202,9 +195,9 @@
       <!-- Lightbox 3 -->
       <div id="lightbox3" class="lightbox">
         <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+        <span class="lightbox-nav left" onclick="window.location='#lightbox2';">&#10094;</span>
         <img src="imagens/cozinha.html/3.jpg" alt="Cozinha 3"/>
-        <a href="#lightbox2" class="lightbox-nav lightbox-prev">&#10094;</a>
-        <a href="#lightbox4" class="lightbox-nav lightbox-next">&#10095;</a>
+        <span class="lightbox-nav right" onclick="window.location='#lightbox4';">&#10095;</span>
       </div>
 
       <!-- Item 4 -->
@@ -218,9 +211,9 @@
       <!-- Lightbox 4 -->
       <div id="lightbox4" class="lightbox">
         <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+        <span class="lightbox-nav left" onclick="window.location='#lightbox3';">&#10094;</span>
         <img src="imagens/cozinha.html/4.jpg" alt="Cozinha 4"/>
-        <a href="#lightbox3" class="lightbox-nav lightbox-prev">&#10094;</a>
-        <a href="#lightbox5" class="lightbox-nav lightbox-next">&#10095;</a>
+        <span class="lightbox-nav right" onclick="window.location='#lightbox5';">&#10095;</span>
       </div>
 
       <!-- Item 5 -->
@@ -234,9 +227,9 @@
       <!-- Lightbox 5 -->
       <div id="lightbox5" class="lightbox">
         <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+        <span class="lightbox-nav left" onclick="window.location='#lightbox4';">&#10094;</span>
         <img src="imagens/cozinha.html/5.jpg" alt="Cozinha 5"/>
-        <a href="#lightbox4" class="lightbox-nav lightbox-prev">&#10094;</a>
-        <a href="#lightbox6" class="lightbox-nav lightbox-next">&#10095;</a>
+        <span class="lightbox-nav right" onclick="window.location='#lightbox6';">&#10095;</span>
       </div>
 
       <!-- Item 6 -->
@@ -250,9 +243,9 @@
       <!-- Lightbox 6 -->
       <div id="lightbox6" class="lightbox">
         <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+        <span class="lightbox-nav left" onclick="window.location='#lightbox5';">&#10094;</span>
         <img src="imagens/cozinha.html/6.jpg" alt="Cozinha 6"/>
-        <a href="#lightbox5" class="lightbox-nav lightbox-prev">&#10094;</a>
-        <a href="#lightbox7" class="lightbox-nav lightbox-next">&#10095;</a>
+        <span class="lightbox-nav right" onclick="window.location='#lightbox7';">&#10095;</span>
       </div>
 
       <!-- Item 7 -->
@@ -266,9 +259,9 @@
       <!-- Lightbox 7 -->
       <div id="lightbox7" class="lightbox">
         <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+        <span class="lightbox-nav left" onclick="window.location='#lightbox6';">&#10094;</span>
         <img src="imagens/cozinha.html/7.jpg" alt="Cozinha 7"/>
-        <a href="#lightbox6" class="lightbox-nav lightbox-prev">&#10094;</a>
-        <a href="#lightbox8" class="lightbox-nav lightbox-next">&#10095;</a>
+        <span class="lightbox-nav right" onclick="window.location='#lightbox8';">&#10095;</span>
       </div>
 
       <!-- Item 8 -->
@@ -282,9 +275,9 @@
       <!-- Lightbox 8 -->
       <div id="lightbox8" class="lightbox">
         <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+        <span class="lightbox-nav left" onclick="window.location='#lightbox7';">&#10094;</span>
         <img src="imagens/cozinha.html/8.jpg" alt="Cozinha 8"/>
-        <a href="#lightbox7" class="lightbox-nav lightbox-prev">&#10094;</a>
-        <a href="#lightbox9" class="lightbox-nav lightbox-next">&#10095;</a>
+        <span class="lightbox-nav right" onclick="window.location='#lightbox9';">&#10095;</span>
       </div>
 
       <!-- Item 9 -->
@@ -298,9 +291,9 @@
       <!-- Lightbox 9 -->
       <div id="lightbox9" class="lightbox">
         <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+        <span class="lightbox-nav left" onclick="window.location='#lightbox8';">&#10094;</span>
         <img src="imagens/cozinha.html/9.jpg" alt="Cozinha 9"/>
-        <a href="#lightbox8" class="lightbox-nav lightbox-prev">&#10094;</a>
-        <a href="#lightbox10" class="lightbox-nav lightbox-next">&#10095;</a>
+        <span class="lightbox-nav right" onclick="window.location='#lightbox10';">&#10095;</span>
       </div>
 
       <!-- Item 10 -->
@@ -314,9 +307,9 @@
       <!-- Lightbox 10 -->
       <div id="lightbox10" class="lightbox">
         <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+        <span class="lightbox-nav left" onclick="window.location='#lightbox9';">&#10094;</span>
         <img src="imagens/cozinha.html/10.JPG" alt="Cozinha 10"/>
-        <a href="#lightbox9" class="lightbox-nav lightbox-prev">&#10094;</a>
-        <a href="#lightbox11" class="lightbox-nav lightbox-next">&#10095;</a>
+        <span class="lightbox-nav right" onclick="window.location='#lightbox11';">&#10095;</span>
       </div>
 
       <!-- Item 11 -->
@@ -330,9 +323,9 @@
       <!-- Lightbox 11 -->
       <div id="lightbox11" class="lightbox">
         <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+        <span class="lightbox-nav left" onclick="window.location='#lightbox10';">&#10094;</span>
         <img src="imagens/cozinha.html/11.jpg" alt="Cozinha 11"/>
-        <a href="#lightbox10" class="lightbox-nav lightbox-prev">&#10094;</a>
-        <a href="#lightbox12" class="lightbox-nav lightbox-next">&#10095;</a>
+        <span class="lightbox-nav right" onclick="window.location='#lightbox12';">&#10095;</span>
       </div>
 
       <!-- Item 12 -->
@@ -346,23 +339,19 @@
       <!-- Lightbox 12 -->
       <div id="lightbox12" class="lightbox">
         <span class="lightbox-close" onclick="window.location='#';">&times;</span>
+        <span class="lightbox-nav left" onclick="window.location='#lightbox11';">&#10094;</span>
         <img src="imagens/cozinha.html/12.jpg" alt="Cozinha 12"/>
-        <a href="#lightbox11" class="lightbox-nav lightbox-prev">&#10094;</a>
+        <span class="lightbox-nav right" onclick="window.location='#lightbox1';">&#10095;</span>
       </div>
     </div>
   </main>
-
   <script>
-    // Função para alternar o menu mobile
-    function toggleMenu() {
-      const menu = document.getElementById('mobile-menu');
-      menu.classList.toggle('active');
+    // Funções para abrir e fechar o menu mobile
+    function openMobileMenu() {
+      document.getElementById('mobileMenu').style.display = 'flex';
     }
-
-    // Função para fechar o menu mobile ao clicar em um link
     function closeMobileMenu() {
-      const menu = document.getElementById('mobile-menu');
-      menu.classList.remove('active');
+      document.getElementById('mobileMenu').style.display = 'none';
     }
   </script>
 </body>
