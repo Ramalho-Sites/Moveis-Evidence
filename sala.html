@@ -137,13 +137,13 @@
     </div>
     <!-- Menu Mobile -->
     <nav id="mobile-menu">
-      <a href="tela.html">Tela inicial</a>
-      <a href="cozinha.html">Cozinha</a>
-      <a href="quarto.html">Quarto</a>
-      <a href="sala.html">Sala</a>
-      <a href="banheiro.html">Banheiro</a>
-      <a href="projeto.html">Projeto 3D</a>
-      <a href="outros.html">Outros</a>
+      <a href="tela.html" onclick="closeMobileMenu()">Tela inicial</a>
+      <a href="cozinha.html" onclick="closeMobileMenu()">Cozinha</a>
+      <a href="quarto.html" onclick="closeMobileMenu()">Quarto</a>
+      <a href="sala.html" onclick="closeMobileMenu()">Sala</a>
+      <a href="banheiro.html" onclick="closeMobileMenu()">Banheiro</a>
+      <a href="projeto.html" onclick="closeMobileMenu()">Projeto 3D</a>
+      <a href="outros.html" onclick="closeMobileMenu()">Outros</a>
     </nav>
     <!-- Menu Desktop -->
     <div class="hidden md:flex space-x-8">
@@ -357,6 +357,12 @@
     function toggleMenu() {
       const menu = document.getElementById('mobile-menu');
       menu.classList.toggle('active');
+    }
+
+    // Função para fechar o menu mobile ao clicar em um link
+    function closeMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.remove('active');
     }
   </script>
 </body>

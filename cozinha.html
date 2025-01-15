@@ -137,23 +137,23 @@
     </div>
     <!-- Menu Mobile -->
     <nav id="mobile-menu">
-      <a href="tela.html">Tela inicial</a>
-      <a href="cozinha.html">Cozinha</a>
-      <a href="quarto.html">Quarto</a>
-      <a href="sala.html">Sala</a>
-      <a href="banheiro.html">Banheiro</a>
-      <a href="projeto.html">Projeto 3D</a>
-      <a href="outros.html">Outros</a>
+      <a href="tela.html" onclick="closeMobileMenu()">Tela inicial</a>
+      <a href="cozinha.html" onclick="closeMobileMenu()">Cozinha</a>
+      <a href="quarto.html" onclick="closeMobileMenu()">Quarto</a>
+      <a href="sala.html" onclick="closeMobileMenu()">Sala</a>
+      <a href="banheiro.html" onclick="closeMobileMenu()">Banheiro</a>
+      <a href="projeto.html" onclick="closeMobileMenu()">Projeto 3D</a>
+      <a href="outros.html" onclick="closeMobileMenu()">Outros</a>
     </nav>
     <!-- Menu Desktop -->
     <div class="hidden md:flex space-x-8">
-      <a href="tela.html">Tela inicial</a>
-      <a href="cozinha.html">Cozinha</a>
-      <a href="quarto.html">Quarto</a>
-      <a href="sala.html">Sala</a>
-      <a href="banheiro.html">Banheiro</a>
-      <a href="projeto.html">Projeto 3D</a>
-      <a href="outros.html">Outros</a>
+      <a class="text-white hover:text-orange-500" href="tela.html">Tela inicial</a>
+      <a class="text-white hover:text-orange-500" href="cozinha.html">Cozinha</a>
+      <a class="text-white hover:text-orange-500" href="quarto.html">Quarto</a>
+      <a class="text-white hover:text-orange-500" href="sala.html">Sala</a>
+      <a class="text-white hover:text-orange-500" href="banheiro.html">Banheiro</a>
+      <a class="text-white hover:text-orange-500" href="projeto.html">Projeto 3D</a>
+      <a class="text-white hover:text-orange-500" href="outros.html">Outros</a>
     </div>
   </nav>
   <main class="p-3">
@@ -170,9 +170,9 @@
       <!-- Lightbox 1 -->
       <div id="lightbox1" class="lightbox">
         <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-        <span class="lightbox-nav lightbox-prev" onclick="window.location='#lightbox12';">&#10094;</span>
         <img src="imagens/cozinha.html/1.jpg" alt="Cozinha 1"/>
-        <span class="lightbox-nav lightbox-next" onclick="window.location='#lightbox2';">&#10095;</span>
+        <a href="#lightbox12" class="lightbox-nav lightbox-prev">&#10094;</a>
+        <a href="#lightbox2" class="lightbox-nav lightbox-next">&#10095;</a>
       </div>
 
       <!-- Item 2 -->
@@ -186,9 +186,9 @@
       <!-- Lightbox 2 -->
       <div id="lightbox2" class="lightbox">
         <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-        <span class="lightbox-nav lightbox-prev" onclick="window.location='#lightbox1';">&#10094;</span>
         <img src="imagens/cozinha.html/2.jpg" alt="Cozinha 2"/>
-        <span class="lightbox-nav lightbox-next" onclick="window.location='#lightbox3';">&#10095;</span>
+        <a href="#lightbox1" class="lightbox-nav lightbox-prev">&#10094;</a>
+        <a href="#lightbox3" class="lightbox-nav lightbox-next">&#10095;</a>
       </div>
 
       <!-- Item 3 -->
@@ -202,9 +202,9 @@
       <!-- Lightbox 3 -->
       <div id="lightbox3" class="lightbox">
         <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-        <span class="lightbox-nav lightbox-prev" onclick="window.location='#lightbox2';">&#10094;</span>
         <img src="imagens/cozinha.html/3.jpg" alt="Cozinha 3"/>
-        <span class="lightbox-nav lightbox-next" onclick="window.location='#lightbox4';">&#10095;</span>
+        <a href="#lightbox2" class="lightbox-nav lightbox-prev">&#10094;</a>
+        <a href="#lightbox4" class="lightbox-nav lightbox-next">&#10095;</a>
       </div>
 
       <!-- Item 4 -->
@@ -218,9 +218,9 @@
       <!-- Lightbox 4 -->
       <div id="lightbox4" class="lightbox">
         <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-        <span class="lightbox-nav lightbox-prev" onclick="window.location='#lightbox3';">&#10094;</span>
         <img src="imagens/cozinha.html/4.jpg" alt="Cozinha 4"/>
-        <span class="lightbox-nav lightbox-next" onclick="window.location='#lightbox5';">&#10095;</span>
+        <a href="#lightbox3" class="lightbox-nav lightbox-prev">&#10094;</a>
+        <a href="#lightbox5" class="lightbox-nav lightbox-next">&#10095;</a>
       </div>
 
       <!-- Item 5 -->
@@ -234,9 +234,9 @@
       <!-- Lightbox 5 -->
       <div id="lightbox5" class="lightbox">
         <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-        <span class="lightbox-nav lightbox-prev" onclick="window.location='#lightbox4';">&#10094;</span>
         <img src="imagens/cozinha.html/5.jpg" alt="Cozinha 5"/>
-        <span class="lightbox-nav lightbox-next" onclick="window.location='#lightbox6';">&#10095;</span>
+        <a href="#lightbox4" class="lightbox-nav lightbox-prev">&#10094;</a>
+        <a href="#lightbox6" class="lightbox-nav lightbox-next">&#10095;</a>
       </div>
 
       <!-- Item 6 -->
@@ -250,9 +250,9 @@
       <!-- Lightbox 6 -->
       <div id="lightbox6" class="lightbox">
         <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-        <span class="lightbox-nav lightbox-prev" onclick="window.location='#lightbox5';">&#10094;</span>
         <img src="imagens/cozinha.html/6.jpg" alt="Cozinha 6"/>
-        <span class="lightbox-nav lightbox-next" onclick="window.location='#lightbox7';">&#10095;</span>
+        <a href="#lightbox5" class="lightbox-nav lightbox-prev">&#10094;</a>
+        <a href="#lightbox7" class="lightbox-nav lightbox-next">&#10095;</a>
       </div>
 
       <!-- Item 7 -->
@@ -266,9 +266,9 @@
       <!-- Lightbox 7 -->
       <div id="lightbox7" class="lightbox">
         <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-        <span class="lightbox-nav lightbox-prev" onclick="window.location='#lightbox6';">&#10094;</span>
         <img src="imagens/cozinha.html/7.jpg" alt="Cozinha 7"/>
-        <span class="lightbox-nav lightbox-next" onclick="window.location='#lightbox8';">&#10095;</span>
+        <a href="#lightbox6" class="lightbox-nav lightbox-prev">&#10094;</a>
+        <a href="#lightbox8" class="lightbox-nav lightbox-next">&#10095;</a>
       </div>
 
       <!-- Item 8 -->
@@ -282,9 +282,9 @@
       <!-- Lightbox 8 -->
       <div id="lightbox8" class="lightbox">
         <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-        <span class="lightbox-nav lightbox-prev" onclick="window.location='#lightbox7';">&#10094;</span>
         <img src="imagens/cozinha.html/8.jpg" alt="Cozinha 8"/>
-        <span class="lightbox-nav lightbox-next" onclick="window.location='#lightbox9';">&#10095;</span>
+        <a href="#lightbox7" class="lightbox-nav lightbox-prev">&#10094;</a>
+        <a href="#lightbox9" class="lightbox-nav lightbox-next">&#10095;</a>
       </div>
 
       <!-- Item 9 -->
@@ -298,9 +298,9 @@
       <!-- Lightbox 9 -->
       <div id="lightbox9" class="lightbox">
         <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-        <span class="lightbox-nav lightbox-prev" onclick="window.location='#lightbox8';">&#10094;</span>
         <img src="imagens/cozinha.html/9.jpg" alt="Cozinha 9"/>
-        <span class="lightbox-nav lightbox-next" onclick="window.location='#lightbox10';">&#10095;</span>
+        <a href="#lightbox8" class="lightbox-nav lightbox-prev">&#10094;</a>
+        <a href="#lightbox10" class="lightbox-nav lightbox-next">&#10095;</a>
       </div>
 
       <!-- Item 10 -->
@@ -314,9 +314,9 @@
       <!-- Lightbox 10 -->
       <div id="lightbox10" class="lightbox">
         <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-        <span class="lightbox-nav lightbox-prev" onclick="window.location='#lightbox9';">&#10094;</span>
         <img src="imagens/cozinha.html/10.JPG" alt="Cozinha 10"/>
-        <span class="lightbox-nav lightbox-next" onclick="window.location='#lightbox11';">&#10095;</span>
+        <a href="#lightbox9" class="lightbox-nav lightbox-prev">&#10094;</a>
+        <a href="#lightbox11" class="lightbox-nav lightbox-next">&#10095;</a>
       </div>
 
       <!-- Item 11 -->
@@ -330,9 +330,9 @@
       <!-- Lightbox 11 -->
       <div id="lightbox11" class="lightbox">
         <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-        <span class="lightbox-nav lightbox-prev" onclick="window.location='#lightbox10';">&#10094;</span>
         <img src="imagens/cozinha.html/11.jpg" alt="Cozinha 11"/>
-        <span class="lightbox-nav lightbox-next" onclick="window.location='#lightbox12';">&#10095;</span>
+        <a href="#lightbox10" class="lightbox-nav lightbox-prev">&#10094;</a>
+        <a href="#lightbox12" class="lightbox-nav lightbox-next">&#10095;</a>
       </div>
 
       <!-- Item 12 -->
@@ -346,8 +346,8 @@
       <!-- Lightbox 12 -->
       <div id="lightbox12" class="lightbox">
         <span class="lightbox-close" onclick="window.location='#';">&times;</span>
-        <span class="lightbox-nav lightbox-prev" onclick="window.location='#lightbox11';">&#10094;</span>
         <img src="imagens/cozinha.html/12.jpg" alt="Cozinha 12"/>
+        <a href="#lightbox11" class="lightbox-nav lightbox-prev">&#10094;</a>
       </div>
     </div>
   </main>
@@ -358,6 +358,12 @@
       const menu = document.getElementById('mobile-menu');
       menu.classList.toggle('active');
     }
+
+    // Função para fechar o menu mobile ao clicar em um link
+    function closeMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.remove('active');
+    }
   </script>
 </body>
-</html>  
+</html>
