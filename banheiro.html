@@ -54,7 +54,7 @@
       max-width: 80%;
       max-height: 80%;
     }
-    .lightbox:target {
+    .lightbox.active {
       display: flex;
     }
     .lightbox-close {
@@ -99,6 +99,12 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .mobile-menu.active {
+      display: flex;
+      opacity: 1;
     }
     .mobile-menu a {
       color: white;
@@ -164,182 +170,213 @@
       <!-- Item 1 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox1">
-            <img src="imagens/banheiro.html/1.jpg" alt="Banheiro 1"/>
+          <a href="#lightbox1" onclick="openLightbox('lightbox1')">
+            <img src="imagens/banheiro/1.jpg" alt="Banheiro 1"/>
           </a>
         </div>
         <div id="lightbox1" class="lightbox">
-          <span class="lightbox-close" onclick="window.location.href='#'">&times;</span>
-          <span class="arrow left-arrow" onclick="window.location.href='#lightbox12'">&lt;</span>
-          <img src="imagens/banheiro.html/1.jpg" alt="Banheiro 1"/>
-          <span class="arrow right-arrow" onclick="window.location.href='#lightbox2'">&gt;</span>
+          <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+          <span class="arrow left-arrow" onclick="navigateLightbox(-1)">&lt;</span>
+          <img src="imagens/banheiro/1.jpg" alt="Banheiro 1"/>
+          <span class="arrow right-arrow" onclick="navigateLightbox(1)">&gt;</span>
         </div>
       </div>
       <!-- Item 2 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox2">
-            <img src="imagens/banheiro.html/2.jpg" alt="Banheiro 2"/>
+          <a href="#lightbox2" onclick="openLightbox('lightbox2')">
+            <img src="imagens/banheiro/2.jpg" alt="Banheiro 2"/>
           </a>
         </div>
         <div id="lightbox2" class="lightbox">
-          <span class="lightbox-close" onclick="window.location.href='#'">&times;</span>
-          <span class="arrow left-arrow" onclick="window.location.href='#lightbox1'">&lt;</span>
-          <img src="imagens/banheiro.html/2.jpg" alt="Banheiro 2"/>
-          <span class="arrow right-arrow" onclick="window.location.href='#lightbox3'">&gt;</span>
+          <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+          <span class="arrow left-arrow" onclick="navigateLightbox(-1)">&lt;</span>
+          <img src="imagens/banheiro/2.jpg" alt="Banheiro 2"/>
+          <span class="arrow right-arrow" onclick="navigateLightbox(1)">&gt;</span>
         </div>
       </div>
       <!-- Item 3 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox3">
-            <img src="imagens/banheiro.html/3.jpg" alt="Banheiro 3"/>
+          <a href="#lightbox3" onclick="openLightbox('lightbox3')">
+            <img src="imagens/banheiro/3.jpg" alt="Banheiro 3"/>
           </a>
         </div>
         <div id="lightbox3" class="lightbox">
-          <span class="lightbox-close" onclick="window.location.href='#'">&times;</span>
-          <span class="arrow left-arrow" onclick="window.location.href='#lightbox2'">&lt;</span>
-          <img src="imagens/banheiro.html/3.jpg" alt="Banheiro 3"/>
-          <span class="arrow right-arrow" onclick="window.location.href='#lightbox4'">&gt;</span>
+          <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+          <span class="arrow left-arrow" onclick="navigateLightbox(-1)">&lt;</span>
+          <img src="imagens/banheiro/3.jpg" alt="Banheiro 3"/>
+          <span class="arrow right-arrow" onclick="navigateLightbox(1)">&gt;</span>
         </div>
       </div>
       <!-- Item 4 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox4">
-            <img src="imagens/banheiro.html/4.jpg" alt="Banheiro 4"/>
+          <a href="#lightbox4" onclick="openLightbox('lightbox4')">
+            <img src="imagens/banheiro/4.jpg" alt="Banheiro 4"/>
           </a>
         </div>
         <div id="lightbox4" class="lightbox">
-          <span class="lightbox-close" onclick="window.location.href='#'">&times;</span>
-          <span class="arrow left-arrow" onclick="window.location.href='#lightbox3'">&lt;</span>
-          <img src="imagens/banheiro.html/4.jpg" alt="Banheiro 4"/>
-          <span class="arrow right-arrow" onclick="window.location.href='#lightbox5'">&gt;</span>
+          <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+          <span class="arrow left-arrow" onclick="navigateLightbox(-1)">&lt;</span>
+          <img src="imagens/banheiro/4.jpg" alt="Banheiro 4"/>
+          <span class="arrow right-arrow" onclick="navigateLightbox(1)">&gt;</span>
         </div>
       </div>
       <!-- Item 5 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox5">
-            <img src="imagens/banheiro.html/5.jpg" alt="Banheiro 5"/>
+          <a href="#lightbox5" onclick="openLightbox('lightbox5')">
+            <img src="imagens/banheiro/5.jpg" alt="Banheiro 5"/>
           </a>
         </div>
         <div id="lightbox5" class="lightbox">
-          <span class="lightbox-close" onclick="window.location.href='#'">&times;</span>
-          <span class="arrow left-arrow" onclick="window.location.href='#lightbox4'">&lt;</span>
-          <img src="imagens/banheiro.html/5.jpg" alt="Banheiro 5"/>
-          <span class="arrow right-arrow" onclick="window.location.href='#lightbox6'">&gt;</span>
+          <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+          <span class="arrow left-arrow" onclick="navigateLightbox(-1)">&lt;</span>
+          <img src="imagens/banheiro/5.jpg" alt="Banheiro 5"/>
+          <span class="arrow right-arrow" onclick="navigateLightbox(1)">&gt;</span>
         </div>
       </div>
       <!-- Item 6 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox6">
-            <img src="imagens/banheiro.html/6.jpg" alt="Banheiro 6"/>
+          <a href="#lightbox6" onclick="openLightbox('lightbox6')">
+            <img src="imagens/banheiro/6.jpg" alt="Banheiro 6"/>
           </a>
         </div>
         <div id="lightbox6" class="lightbox">
-          <span class="lightbox-close" onclick="window.location.href='#'">&times;</span>
-          <span class="arrow left-arrow" onclick="window.location.href='#lightbox5'">&lt;</span>
-          <img src="imagens/banheiro.html/6.jpg" alt="Banheiro 6"/>
-          <span class="arrow right-arrow" onclick="window.location.href='#lightbox7'">&gt;</span>
+          <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+          <span class="arrow left-arrow" onclick="navigateLightbox(-1)">&lt;</span>
+          <img src="imagens/banheiro/6.jpg" alt="Banheiro 6"/>
+          <span class="arrow right-arrow" onclick="navigateLightbox(1)">&gt;</span>
         </div>
       </div>
       <!-- Item 7 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox7">
-            <img src="imagens/banheiro.html/7.jpg" alt="Banheiro 7"/>
+          <a href="#lightbox7" onclick="openLightbox('lightbox7')">
+            <img src="imagens/banheiro/7.jpg" alt="Banheiro 7"/>
           </a>
         </div>
         <div id="lightbox7" class="lightbox">
-          <span class="lightbox-close" onclick="window.location.href='#'">&times;</span>
-          <span class="arrow left-arrow" onclick="window.location.href='#lightbox6'">&lt;</span>
-          <img src="imagens/banheiro.html/7.jpg" alt="Banheiro 7"/>
-          <span class="arrow right-arrow" onclick="window.location.href='#lightbox8'">&gt;</span>
+          <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+          <span class="arrow left-arrow" onclick="navigateLightbox(-1)">&lt;</span>
+          <img src="imagens/banheiro/7.jpg" alt="Banheiro 7"/>
+          <span class="arrow right-arrow" onclick="navigateLightbox(1)">&gt;</span>
         </div>
       </div>
       <!-- Item 8 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox8">
-            <img src="imagens/banheiro.html/8.jpg" alt="Banheiro 8"/>
+          <a href="#lightbox8" onclick="openLightbox('lightbox8')">
+            <img src="imagens/banheiro/8.jpg" alt="Banheiro 8"/>
           </a>
         </div>
         <div id="lightbox8" class="lightbox">
-          <span class="lightbox-close" onclick="window.location.href='#'">&times;</span>
-          <span class="arrow left-arrow" onclick="window.location.href='#lightbox7'">&lt;</span>
-          <img src="imagens/banheiro.html/8.jpg" alt="Banheiro 8"/>
-          <span class="arrow right-arrow" onclick="window.location.href='#lightbox9'">&gt;</span>
+          <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+          <span class="arrow left-arrow" onclick="navigateLightbox(-1)">&lt;</span>
+          <img src="imagens/banheiro/8.jpg" alt="Banheiro 8"/>
+          <span class="arrow right-arrow" onclick="navigateLightbox(1)">&gt;</span>
         </div>
       </div>
       <!-- Item 9 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox9">
-            <img src="imagens/banheiro.html/9.jpg" alt="Banheiro 9"/>
+          <a href="#lightbox9" onclick="openLightbox('lightbox9')">
+            <img src="imagens/banheiro/9.jpg" alt="Banheiro 9"/>
           </a>
         </div>
         <div id="lightbox9" class="lightbox">
-          <span class="lightbox-close" onclick="window.location.href='#'">&times;</span>
-          <span class="arrow left-arrow" onclick="window.location.href='#lightbox8'">&lt;</span>
-          <img src="imagens/banheiro.html/9.jpg" alt="Banheiro 9"/>
-          <span class="arrow right-arrow" onclick="window.location.href='#lightbox10'">&gt;</span>
+          <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+          <span class="arrow left-arrow" onclick="navigateLightbox(-1)">&lt;</span>
+          <img src="imagens/banheiro/9.jpg" alt="Banheiro 9"/>
+          <span class="arrow right-arrow" onclick="navigateLightbox(1)">&gt;</span>
         </div>
       </div>
       <!-- Item 10 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox10">
-            <img src="imagens/banheiro.html/10.jpg" alt="Banheiro 10"/>
+          <a href="#lightbox10" onclick="openLightbox('lightbox10')">
+            <img src="imagens/banheiro/10.jpg" alt="Banheiro 10"/>
           </a>
         </div>
         <div id="lightbox10" class="lightbox">
-          <span class="lightbox-close" onclick="window.location.href='#'">&times;</span>
-          <span class="arrow left-arrow" onclick="window.location.href='#lightbox9'">&lt;</span>
-          <img src="imagens/banheiro.html/10.jpg" alt="Banheiro 10"/>
-          <span class="arrow right-arrow" onclick="window.location.href='#lightbox11'">&gt;</span>
+          <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+          <span class="arrow left-arrow" onclick="navigateLightbox(-1)">&lt;</span>
+          <img src="imagens/banheiro/10.jpg" alt="Banheiro 10"/>
+          <span class="arrow right-arrow" onclick="navigateLightbox(1)">&gt;</span>
         </div>
       </div>
       <!-- Item 11 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox11">
-            <img src="imagens/banheiro.html/11.jpg" alt="Banheiro 11"/>
+          <a href="#lightbox11" onclick="openLightbox('lightbox11')">
+            <img src="imagens/banheiro/11.jpg" alt="Banheiro 11"/>
           </a>
         </div>
         <div id="lightbox11" class="lightbox">
-          <span class="lightbox-close" onclick="window.location.href='#'">&times;</span>
-          <span class="arrow left-arrow" onclick="window.location.href='#lightbox10'">&lt;</span>
-          <img src="imagens/banheiro.html/11.jpg" alt="Banheiro 11"/>
-          <span class="arrow right-arrow" onclick="window.location.href='#lightbox12'">&gt;</span>
+          <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+          <span class="arrow left-arrow" onclick="navigateLightbox(-1)">&lt;</span>
+          <img src="imagens/banheiro/11.jpg" alt="Banheiro 11"/>
+          <span class="arrow right-arrow" onclick="navigateLightbox(1)">&gt;</span>
         </div>
       </div>
       <!-- Item 12 -->
       <div class="relative gradient-frame">
         <div class="image-container">
-          <a href="#lightbox12">
-            <img src="imagens/banheiro.html/12.jpg" alt="Banheiro 12"/>
+          <a href="#lightbox12" onclick="openLightbox('lightbox12')">
+            <img src="imagens/banheiro/12.jpg" alt="Banheiro 12"/>
           </a>
         </div>
         <div id="lightbox12" class="lightbox">
-          <span class="lightbox-close" onclick="window.location.href='#'">&times;</span>
-          <span class="arrow left-arrow" onclick="window.location.href='#lightbox11'">&lt;</span>
-          <img src="imagens/banheiro.html/12.jpg" alt="Banheiro 12"/>
-          <span class="arrow right-arrow" onclick="window.location.href='#lightbox1'">&gt;</span>
+          <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+          <span class="arrow left-arrow" onclick="navigateLightbox(-1)">&lt;</span>
+          <img src="imagens/banheiro/12.jpg" alt="Banheiro 12"/>
+          <span class="arrow right-arrow" onclick="navigateLightbox(1)">&gt;</span>
         </div>
       </div>
     </div>
   </main>
+
   <script>
+    // Funções para o menu mobile
     function openMobileMenu() {
-      document.getElementById('mobileMenu').style.display = 'flex';
+      document.getElementById('mobileMenu').classList.add('active');
     }
     function closeMobileMenu() {
-      document.getElementById('mobileMenu').style.display = 'none';
+      document.getElementById('mobileMenu').classList.remove('active');
     }
 
-    // Função para configurar os gestos de swipe
+    // Funções para a lightbox
+    let currentLightboxIndex = 1;
+
+    function openLightbox(id) {
+      document.getElementById(id).classList.add('active');
+      currentLightboxIndex = parseInt(id.replace('lightbox', ''), 10);
+    }
+
+    function closeLightbox() {
+      document.querySelector('.lightbox.active').classList.remove('active');
+    }
+
+    function navigateLightbox(direction) {
+      closeLightbox();
+      currentLightboxIndex += direction;
+
+      // Verifica se o índice ultrapassou o limite
+      if (currentLightboxIndex > 12) {
+        currentLightboxIndex = 1; // Volta para a primeira foto
+        closeLightbox(); // Fecha a lightbox
+        return;
+      }
+      if (currentLightboxIndex < 1) {
+        currentLightboxIndex = 12; // Vai para a última foto
+      }
+
+      openLightbox(`lightbox${currentLightboxIndex}`);
+    }
+
+    // Configuração dos gestos de swipe
     function setupSwipeGestures() {
       const lightbox = document.querySelector('.lightbox');
       if (lightbox) {
@@ -349,30 +386,7 @@
       }
     }
 
-    // Função para navegar entre as fotos
-    function navigateLightbox(direction) {
-      const currentLightbox = document.querySelector('.lightbox:target');
-      if (!currentLightbox) return;
-
-      const currentId = currentLightbox.id;
-      const currentNumber = parseInt(currentId.replace('lightbox', ''), 10);
-      let nextNumber = currentNumber + direction;
-
-      // Verifica se é a última foto e fecha a lightbox
-      if (nextNumber > 12) {
-        window.location.href = '#';
-        return;
-      }
-
-      // Verifica se é a primeira foto e volta para a última
-      if (nextNumber < 1) {
-        nextNumber = 12;
-      }
-
-      window.location.href = `#lightbox${nextNumber}`;
-    }
-
-    // Inicializa os gestos quando a página carrega
+    // Inicialização
     window.onload = function () {
       setupSwipeGestures();
     };

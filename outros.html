@@ -99,6 +99,12 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+    .mobile-menu.open {
+      display: flex;
+      opacity: 1;
     }
     .mobile-menu a {
       color: white;
@@ -165,13 +171,13 @@
       <div class="relative gradient-frame">
         <div class="image-container">
           <a href="#lightbox1">
-            <img src="imagens/Outros.html/1.jpg" alt="Outro 1"/>
+            <img src="imagens/Outros/1.jpg" alt="Outro 1"/>
           </a>
         </div>
         <div id="lightbox1" class="lightbox">
-          <span class="lightbox-close" onclick="window.location.href='#'">&times;</span>
+          <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
           <a href="#lightbox12" class="lightbox-nav lightbox-nav-left">&#10094;</a>
-          <img src="imagens/Outros.html/1.jpg" alt="Outro 1"/>
+          <img src="imagens/Outros/1.jpg" alt="Outro 1"/>
           <a href="#lightbox2" class="lightbox-nav lightbox-nav-right">&#10095;</a>
         </div>
       </div>
@@ -179,13 +185,13 @@
       <div class="relative gradient-frame">
         <div class="image-container">
           <a href="#lightbox2">
-            <img src="imagens/Outros.html/2.jpg" alt="Outro 2"/>
+            <img src="imagens/Outros/2.jpg" alt="Outro 2"/>
           </a>
         </div>
         <div id="lightbox2" class="lightbox">
-          <span class="lightbox-close" onclick="window.location.href='#'">&times;</span>
+          <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
           <a href="#lightbox1" class="lightbox-nav lightbox-nav-left">&#10094;</a>
-          <img src="imagens/Outros.html/2.jpg" alt="Outro 2"/>
+          <img src="imagens/Outros/2.jpg" alt="Outro 2"/>
           <a href="#lightbox3" class="lightbox-nav lightbox-nav-right">&#10095;</a>
         </div>
       </div>
@@ -193,13 +199,13 @@
       <div class="relative gradient-frame">
         <div class="image-container">
           <a href="#lightbox3">
-            <img src="imagens/Outros.html/3.jpg" alt="Outro 3"/>
+            <img src="imagens/Outros/3.jpg" alt="Outro 3"/>
           </a>
         </div>
         <div id="lightbox3" class="lightbox">
-          <span class="lightbox-close" onclick="window.location.href='#'">&times;</span>
+          <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
           <a href="#lightbox2" class="lightbox-nav lightbox-nav-left">&#10094;</a>
-          <img src="imagens/Outros.html/3.jpg" alt="Outro 3"/>
+          <img src="imagens/Outros/3.jpg" alt="Outro 3"/>
           <a href="#lightbox4" class="lightbox-nav lightbox-nav-right">&#10095;</a>
         </div>
       </div>
@@ -207,13 +213,13 @@
       <div class="relative gradient-frame">
         <div class="image-container">
           <a href="#lightbox4">
-            <img src="imagens/Outros.html/4.jpg" alt="Outro 4"/>
+            <img src="imagens/Outros/4.jpg" alt="Outro 4"/>
           </a>
         </div>
         <div id="lightbox4" class="lightbox">
-          <span class="lightbox-close" onclick="window.location.href='#'">&times;</span>
+          <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
           <a href="#lightbox3" class="lightbox-nav lightbox-nav-left">&#10094;</a>
-          <img src="imagens/Outros.html/4.jpg" alt="Outro 4"/>
+          <img src="imagens/Outros/4.jpg" alt="Outro 4"/>
           <a href="#lightbox5" class="lightbox-nav lightbox-nav-right">&#10095;</a>
         </div>
       </div>
@@ -221,13 +227,13 @@
       <div class="relative gradient-frame">
         <div class="image-container">
           <a href="#lightbox5">
-            <img src="imagens/Outros.html/5.jpg" alt="Outro 5"/>
+            <img src="imagens/Outros/5.jpg" alt="Outro 5"/>
           </a>
         </div>
         <div id="lightbox5" class="lightbox">
-          <span class="lightbox-close" onclick="window.location.href='#'">&times;</span>
+          <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
           <a href="#lightbox4" class="lightbox-nav lightbox-nav-left">&#10094;</a>
-          <img src="imagens/Outros.html/5.jpg" alt="Outro 5"/>
+          <img src="imagens/Outros/5.jpg" alt="Outro 5"/>
           <a href="#lightbox6" class="lightbox-nav lightbox-nav-right">&#10095;</a>
         </div>
       </div>
@@ -235,13 +241,13 @@
       <div class="relative gradient-frame">
         <div class="image-container">
           <a href="#lightbox6">
-            <img src="imagens/Outros.html/6.JPG" alt="Outro 6"/>
+            <img src="imagens/Outros/6.JPG" alt="Outro 6"/>
           </a>
         </div>
         <div id="lightbox6" class="lightbox">
-          <span class="lightbox-close" onclick="window.location.href='#'">&times;</span>
+          <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
           <a href="#lightbox5" class="lightbox-nav lightbox-nav-left">&#10094;</a>
-          <img src="imagens/Outros.html/6.JPG" alt="Outro 6"/>
+          <img src="imagens/Outros/6.JPG" alt="Outro 6"/>
           <a href="#lightbox7" class="lightbox-nav lightbox-nav-right">&#10095;</a>
         </div>
       </div>
@@ -249,13 +255,13 @@
       <div class="relative gradient-frame">
         <div class="image-container">
           <a href="#lightbox7">
-            <img src="imagens/Outros.html/7.jpg" alt="Outro 7"/>
+            <img src="imagens/Outros/7.jpg" alt="Outro 7"/>
           </a>
         </div>
         <div id="lightbox7" class="lightbox">
-          <span class="lightbox-close" onclick="window.location.href='#'">&times;</span>
+          <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
           <a href="#lightbox6" class="lightbox-nav lightbox-nav-left">&#10094;</a>
-          <img src="imagens/Outros.html/7.jpg" alt="Outro 7"/>
+          <img src="imagens/Outros/7.jpg" alt="Outro 7"/>
           <a href="#lightbox8" class="lightbox-nav lightbox-nav-right">&#10095;</a>
         </div>
       </div>
@@ -263,13 +269,13 @@
       <div class="relative gradient-frame">
         <div class="image-container">
           <a href="#lightbox8">
-            <img src="imagens/Outros.html/8.jpg" alt="Outro 8"/>
+            <img src="imagens/Outros/8.jpg" alt="Outro 8"/>
           </a>
         </div>
         <div id="lightbox8" class="lightbox">
-          <span class="lightbox-close" onclick="window.location.href='#'">&times;</span>
+          <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
           <a href="#lightbox7" class="lightbox-nav lightbox-nav-left">&#10094;</a>
-          <img src="imagens/Outros.html/8.jpg" alt="Outro 8"/>
+          <img src="imagens/Outros/8.jpg" alt="Outro 8"/>
           <a href="#lightbox9" class="lightbox-nav lightbox-nav-right">&#10095;</a>
         </div>
       </div>
@@ -277,13 +283,13 @@
       <div class="relative gradient-frame">
         <div class="image-container">
           <a href="#lightbox9">
-            <img src="imagens/Outros.html/9.jpg" alt="Outro 9"/>
+            <img src="imagens/Outros/9.jpg" alt="Outro 9"/>
           </a>
         </div>
         <div id="lightbox9" class="lightbox">
-          <span class="lightbox-close" onclick="window.location.href='#'">&times;</span>
+          <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
           <a href="#lightbox8" class="lightbox-nav lightbox-nav-left">&#10094;</a>
-          <img src="imagens/Outros.html/9.jpg" alt="Outro 9"/>
+          <img src="imagens/Outros/9.jpg" alt="Outro 9"/>
           <a href="#lightbox10" class="lightbox-nav lightbox-nav-right">&#10095;</a>
         </div>
       </div>
@@ -291,13 +297,13 @@
       <div class="relative gradient-frame">
         <div class="image-container">
           <a href="#lightbox10">
-            <img src="imagens/Outros.html/10.jpg" alt="Outro 10"/>
+            <img src="imagens/Outros/10.jpg" alt="Outro 10"/>
           </a>
         </div>
         <div id="lightbox10" class="lightbox">
-          <span class="lightbox-close" onclick="window.location.href='#'">&times;</span>
+          <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
           <a href="#lightbox9" class="lightbox-nav lightbox-nav-left">&#10094;</a>
-          <img src="imagens/Outros.html/10.jpg" alt="Outro 10"/>
+          <img src="imagens/Outros/10.jpg" alt="Outro 10"/>
           <a href="#lightbox11" class="lightbox-nav lightbox-nav-right">&#10095;</a>
         </div>
       </div>
@@ -305,13 +311,13 @@
       <div class="relative gradient-frame">
         <div class="image-container">
           <a href="#lightbox11">
-            <img src="imagens/Outros.html/11.jpg" alt="Outro 11"/>
+            <img src="imagens/Outros/11.jpg" alt="Outro 11"/>
           </a>
         </div>
         <div id="lightbox11" class="lightbox">
-          <span class="lightbox-close" onclick="window.location.href='#'">&times;</span>
+          <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
           <a href="#lightbox10" class="lightbox-nav lightbox-nav-left">&#10094;</a>
-          <img src="imagens/Outros.html/11.jpg" alt="Outro 11"/>
+          <img src="imagens/Outros/11.jpg" alt="Outro 11"/>
           <a href="#lightbox12" class="lightbox-nav lightbox-nav-right">&#10095;</a>
         </div>
       </div>
@@ -319,13 +325,13 @@
       <div class="relative gradient-frame">
         <div class="image-container">
           <a href="#lightbox12">
-            <img src="imagens/Outros.html/12.jpg" alt="Outro 12"/>
+            <img src="imagens/Outros/12.jpg" alt="Outro 12"/>
           </a>
         </div>
         <div id="lightbox12" class="lightbox">
-          <span class="lightbox-close" onclick="window.location.href='#'">&times;</span>
+          <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
           <a href="#lightbox11" class="lightbox-nav lightbox-nav-left">&#10094;</a>
-          <img src="imagens/Outros.html/12.jpg" alt="Outro 12"/>
+          <img src="imagens/Outros/12.jpg" alt="Outro 12"/>
           <a href="#lightbox1" class="lightbox-nav lightbox-nav-right">&#10095;</a>
         </div>
       </div>
@@ -333,10 +339,15 @@
   </main>
   <script>
     function openMobileMenu() {
-      document.getElementById('mobileMenu').style.display = 'flex';
+      document.getElementById('mobileMenu').classList.add('open');
     }
     function closeMobileMenu() {
-      document.getElementById('mobileMenu').style.display = 'none';
+      document.getElementById('mobileMenu').classList.remove('open');
+    }
+
+    // Função para fechar a lightbox
+    function closeLightbox() {
+      window.location.href = '#';
     }
 
     // Função para configurar os gestos de swipe
@@ -360,7 +371,7 @@
 
       // Verifica se é a última foto e fecha a lightbox
       if (nextNumber > 12) {
-        window.location.href = '#';
+        closeLightbox();
         return;
       }
 
