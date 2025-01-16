@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
   <style>
     body {
       font-family: 'Roboto', sans-serif;
@@ -336,6 +337,44 @@
     function closeMobileMenu() {
       document.getElementById('mobileMenu').style.display = 'none';
     }
+
+    // Função para configurar os gestos de swipe
+    function setupSwipeGestures() {
+      const lightbox = document.querySelector('.lightbox');
+      if (lightbox) {
+        const hammer = new Hammer(lightbox);
+        hammer.on('swipeleft', () => navigateLightbox(1)); // Swipe para a esquerda (próxima foto)
+        hammer.on('swiperight', () => navigateLightbox(-1)); // Swipe para a direita (foto anterior)
+      }
+    }
+
+    // Função para navegar entre as fotos
+    function navigateLightbox(direction) {
+      const currentLightbox = document.querySelector('.lightbox:target');
+      if (!currentLightbox) return;
+
+      const currentId = currentLightbox.id;
+      const currentNumber = parseInt(currentId.replace('lightbox', ''), 10);
+      let nextNumber = currentNumber + direction;
+
+      // Verifica se é a última foto e fecha a lightbox
+      if (nextNumber > 12) {
+        window.location.href = '#';
+        return;
+      }
+
+      // Verifica se é a primeira foto e volta para a última
+      if (nextNumber < 1) {
+        nextNumber = 12;
+      }
+
+      window.location.href = `#lightbox${nextNumber}`;
+    }
+
+    // Inicializa os gestos quando a página carrega
+    window.onload = function () {
+      setupSwipeGestures();
+    };
   </script>
 </body>
 </html>
