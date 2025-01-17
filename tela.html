@@ -107,8 +107,6 @@
       }
       .menu-toggle {
         display: block; /* Mostra o botão do menu no mobile */
-        font-size: 1.5rem;
-        color: white;
         cursor: pointer;
       }
       #mobile-menu {
@@ -142,24 +140,35 @@
     }
 
     /* Personalização das cores das barras do menu de hambúrguer */
-    .menu-toggle i.fa-bars {
-        font-size: 1.5rem; /* Tamanho do ícone */
+    .menu-toggle {
         position: relative;
-        color: transparent; /* Torna o ícone transparente */
+        width: 30px; /* Largura do ícone */
+        height: 24px; /* Altura do ícone */
     }
 
-    /* Cria as barras coloridas */
-    .menu-toggle i.fa-bars::before {
-        content: "";
+    .menu-toggle span {
         position: absolute;
-        top: -5px; /* Ajuste a posição vertical */
-        left: 0;
         width: 100%;
-        height: 3px; /* Altura da barra */
-        background: white; /* Cor da primeira barra (branca) */
-        box-shadow: 
-            0 7px 0 #FF8C00, /* Cor da segunda barra (laranja) */
-            0 14px 0 white; /* Cor da terceira barra (branca) */
+        height: 3px; /* Altura de cada barra */
+        background-color: white; /* Cor padrão das barras */
+        transition: all 0.3s ease;
+    }
+
+    /* Posicionamento das barras */
+    .menu-toggle span:nth-child(1) {
+        top: 0;
+        background-color: white; /* Primeira barra branca */
+    }
+
+    .menu-toggle span:nth-child(2) {
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #FF8C00; /* Segunda barra laranja */
+    }
+
+    .menu-toggle span:nth-child(3) {
+        bottom: 0;
+        background-color: white; /* Terceira barra branca */
     }
   </style>
 </head>
@@ -173,7 +182,9 @@
       </div>
     </div>
     <div class="menu-toggle" onclick="toggleMenu()">
-      <i class="fas fa-bars"></i> <!-- Ícone do menu de hambúrguer -->
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
     <nav class="nav-links">
       <a href="#tela-inicial" id="tela-inicial-link">Tela inicial</a>
