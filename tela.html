@@ -140,6 +140,27 @@
         display: none !important;
       }
     }
+
+    /* Personalização das cores das barras do menu de hambúrguer */
+    .menu-toggle i.fa-bars {
+        font-size: 1.5rem; /* Tamanho do ícone */
+        position: relative;
+        color: transparent; /* Torna o ícone transparente */
+    }
+
+    /* Cria as barras coloridas */
+    .menu-toggle i.fa-bars::before {
+        content: "";
+        position: absolute;
+        top: -5px; /* Ajuste a posição vertical */
+        left: 0;
+        width: 100%;
+        height: 3px; /* Altura da barra */
+        background: white; /* Cor da primeira barra (branca) */
+        box-shadow: 
+            0 7px 0 #FF8C00, /* Cor da segunda barra (laranja) */
+            0 14px 0 white; /* Cor da terceira barra (branca) */
+    }
   </style>
 </head>
 <body>
