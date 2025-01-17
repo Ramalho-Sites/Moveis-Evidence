@@ -132,6 +132,13 @@
         color: #FF8C00; /* Efeito de hover nos links (mobile) */
       }
     }
+    /* Oculta o menu mobile no PC */
+    @media (min-width: 769px) {
+      #mobile-menu {
+        display: none !important;
+      }
+    }
+
     /* Personalização das cores das barras do menu de hambúrguer */
     .menu-toggle {
         position: relative;
