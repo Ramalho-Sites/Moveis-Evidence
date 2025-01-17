@@ -106,15 +106,8 @@
         display: none; /* Oculta os links no mobile */
       }
       .menu-toggle {
-        display: flex;
-        align-items: center; /* Alinha o texto e o ícone verticalmente */
+        display: block; /* Mostra o botão do menu no mobile */
         cursor: pointer;
-        margin-left: 20px; /* Afasta o "MENU" do nome "Móveis Planejados" */
-      }
-      .menu-toggle span.menu-text {
-        color: white;
-        font-size: 1rem;
-        margin-right: 10px; /* Espaçamento entre o texto "MENU" e o ícone */
       }
       #mobile-menu {
         display: none; /* Oculta o menu mobile por padrão */
@@ -189,7 +182,6 @@
       </div>
     </div>
     <div class="menu-toggle" onclick="toggleMenu()">
-      <span class="menu-text">MENU</span> <!-- Texto "MENU" alinhado com "Móveis Planejados" -->
       <span></span>
       <span></span>
       <span></span>
