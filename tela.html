@@ -106,17 +106,15 @@
         display: none; /* Oculta os links no mobile */
       }
       .menu-toggle {
-        display: flex; /* Mostra o botão do menu no mobile */
-        flex-direction: column;
-        align-items: center;
+        display: flex;
+        align-items: center; /* Alinha o texto e o ícone verticalmente */
         cursor: pointer;
+        margin-left: 20px; /* Afasta o "MENU" do nome "Móveis Planejados" */
       }
       .menu-toggle span.menu-text {
         color: white;
         font-size: 1rem;
-        margin-bottom: 5px; /* Espaçamento abaixo do texto */
-        position: relative; /* Permite ajustes finos */
-        top: -10px; /* Move o texto 10px para cima */
+        margin-right: 10px; /* Espaçamento entre o texto "MENU" e o ícone */
       }
       #mobile-menu {
         display: none; /* Oculta o menu mobile por padrão */
@@ -191,7 +189,7 @@
       </div>
     </div>
     <div class="menu-toggle" onclick="toggleMenu()">
-      <span class="menu-text">MENU</span> <!-- Texto "MENU" ajustado para ficar mais para cima -->
+      <span class="menu-text">MENU</span> <!-- Texto "MENU" alinhado com "Móveis Planejados" -->
       <span></span>
       <span></span>
       <span></span>
