@@ -106,8 +106,15 @@
         display: none; /* Oculta os links no mobile */
       }
       .menu-toggle {
-        display: block; /* Mostra o botão do menu no mobile */
+        display: flex; /* Mostra o botão do menu no mobile */
+        flex-direction: column;
+        align-items: center;
         cursor: pointer;
+      }
+      .menu-toggle span.menu-text {
+        color: white;
+        font-size: 1rem;
+        margin-bottom: 5px;
       }
       #mobile-menu {
         display: none; /* Oculta o menu mobile por padrão */
@@ -182,6 +189,7 @@
       </div>
     </div>
     <div class="menu-toggle" onclick="toggleMenu()">
+      <span class="menu-text">MENU</span>
       <span></span>
       <span></span>
       <span></span>
