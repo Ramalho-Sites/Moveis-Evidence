@@ -132,16 +132,6 @@
         color: #FF8C00; /* Efeito de hover nos links (mobile) */
       }
     }
-    /* Oculta o menu mobile no PC */
-    @media (min-width: 769px) {
-      #mobile-menu {
-        display: none !important;
-      }
-      .nav-links {
-        display: none !important; /* Oculta o menu de navegação na versão de PC */
-      }
-    }
-
     /* Personalização das cores das barras do menu de hambúrguer */
     .menu-toggle {
         position: relative;
@@ -184,12 +174,18 @@
         <span class="text-xl text-white block cormorant-garamond-semibold">Móveis Planejados</span>
       </div>
     </div>
+    <!-- Links de navegação para PC (mantidos) -->
+    <nav class="nav-links">
+      <a href="#tela-inicial" id="tela-inicial-link">Tela inicial</a>
+      <a href="#sobre" id="sobre-link">Sobre</a>
+      <a href="cozinha.html" id="projetos-link">Projetos</a>
+    </nav>
+    <!-- Menu de navegação para mobile -->
     <div class="menu-toggle" onclick="toggleMenu()">
       <span></span>
       <span></span>
       <span></span>
     </div>
-    <!-- Menu de navegação para PC (removido) -->
     <nav id="mobile-menu">
       <a href="#tela-inicial" id="tela-inicial-link-mobile">Tela inicial</a>
       <a href="#sobre" id="sobre-link-mobile">Sobre</a>
@@ -274,19 +270,19 @@
     }
 
     // Adicionando rolagem suave ao link "Sobre"
-    document.getElementById('sobre-link-mobile').addEventListener('click', function (e) {
+    document.getElementById('sobre-link').addEventListener('click', function (e) {
       e.preventDefault(); // Evita o comportamento padrão do link
       smoothScroll('sobre');
     });
 
     // Adicionando rolagem suave ao link "Tela inicial"
-    document.getElementById('tela-inicial-link-mobile').addEventListener('click', function (e) {
+    document.getElementById('tela-inicial-link').addEventListener('click', function (e) {
       e.preventDefault(); // Evita o comportamento padrão do link
       smoothScroll('tela-inicial');
     });
 
     // Removendo o event listener do link "Projetos" para redirecionar diretamente
-    document.getElementById('projetos-link-mobile').addEventListener('click', function (e) {
+    document.getElementById('projetos-link').addEventListener('click', function (e) {
       // Não é necessário preventDefault, pois queremos redirecionar para cozinha.html
     });
   </script>
