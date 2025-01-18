@@ -62,19 +62,6 @@
     .nav-links a:hover {
       color: #FF8C00; /* Efeito de hover nos links (PC) */
     }
-    .social-links {
-      display: flex;
-      gap: 20px; /* Espaçamento entre os ícones */
-      align-items: center;
-    }
-    .social-links a {
-      color: white; /* Cor dos ícones */
-      font-size: 1.5rem; /* Tamanho dos ícones */
-      transition: color 0.3s;
-    }
-    .social-links a:hover {
-      color: #FF8C00; /* Efeito de hover nos ícones */
-    }
     .section {
       height: 100vh; /* Cada seção ocupa 100% da altura da tela */
       display: flex;
@@ -118,9 +105,6 @@
       .nav-links {
         display: none; /* Oculta os links no mobile */
       }
-      .social-links {
-        display: none; /* Oculta os ícones sociais no mobile */
-      }
       .menu-toggle {
         display: block; /* Mostra o botão do menu no mobile */
         cursor: pointer;
@@ -147,11 +131,18 @@
       #mobile-menu a:hover {
         color: #FF8C00; /* Efeito de hover nos links (mobile) */
       }
+      .external-link-icon {
+        margin-left: 5px; /* Espaçamento entre o texto e o ícone */
+        font-size: 0.9rem; /* Tamanho do ícone */
+      }
     }
     /* Oculta o menu mobile no PC */
     @media (min-width: 769px) {
       #mobile-menu {
         display: none !important;
+      }
+      .external-link-icon {
+        display: none; /* Oculta o ícone de link externo no desktop */
       }
     }
 
@@ -197,14 +188,6 @@
         <span class="text-xl text-white block cormorant-garamond-semibold">Móveis Planejados</span>
       </div>
     </div>
-    <div class="social-links">
-      <a href="https://www.instagram.com/moveis_evidence" target="_blank">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://wa.me/5561984268735" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-      </a>
-    </div>
     <div class="menu-toggle" onclick="toggleMenu()">
       <span></span>
       <span></span>
@@ -234,10 +217,12 @@
       <a class="text-white hover:text-orange-500 flex items-center space-x-2 text-xl" href="https://www.instagram.com/moveis_evidence" target="_blank">
         <i class="fab fa-instagram"></i>
         <span>@moveis_evidence</span>
+        <span class="external-link-icon">🔗</span> <!-- Ícone de link externo -->
       </a>
       <a class="text-white hover:text-orange-500 flex items-center space-x-2 text-xl" href="https://wa.me/5561984268735" target="_blank">
         <i class="fab fa-whatsapp"></i>
         <span>(61) 98426-8735</span>
+        <span class="external-link-icon">🔗</span> <!-- Ícone de link externo -->
       </a>
     </div>
   </section>
