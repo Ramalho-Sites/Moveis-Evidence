@@ -50,8 +50,6 @@
     .nav-links {
       display: flex;
       gap: 40px; /* Espaçamento entre os links */
-      margin-right: 0; /* Removi a margem direita */
-      margin-left: 0; /* Removi a margem esquerda para mover os links mais para a esquerda */
     }
     .nav-links a {
       text-decoration: none;
@@ -95,9 +93,6 @@
     }
     /* Ajustes para mobile */
     @media (max-width: 768px) {
-      .logo-wrapper {
-        margin-left: -80px; /* Valor negativo para mover ainda mais para a esquerda */
-      }
       .logo-wrapper img {
         height: 100px; /* Tamanho da logo no mobile */
         margin-right: 30px; /* Espaçamento entre a logo e o texto no mobile */
@@ -132,50 +127,37 @@
         color: #FF8C00; /* Efeito de hover nos links (mobile) */
       }
     }
-    /* Oculta o menu mobile no PC */
-    @media (min-width: 769px) {
-      #mobile-menu {
-        display: none !important;
-      }
-    }
 
-    /* Personalização das cores das barras do menu de hambúrguer */
+    /* Personalização das barras do menu de hambúrguer */
     .menu-toggle {
-        position: relative;
-        width: 30px; /* Largura do ícone */
-        height: 24px; /* Altura do ícone */
+      position: relative;
+      width: 30px;
+      height: 24px;
     }
-
     .menu-toggle span {
-        position: absolute;
-        width: 100%;
-        height: 3px; /* Altura de cada barra */
-        background-color: white; /* Cor padrão das barras */
-        transition: all 0.3s ease;
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background-color: white;
+      transition: all 0.3s ease;
     }
-
-    /* Posicionamento das barras */
     .menu-toggle span:nth-child(1) {
-        top: 0;
-        background-color: white; /* Primeira barra branca */
+      top: 0;
     }
-
     .menu-toggle span:nth-child(2) {
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: #FF8C00; /* Segunda barra laranja */
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #FF8C00;
     }
-
     .menu-toggle span:nth-child(3) {
-        bottom: 0;
-        background-color: white; /* Terceira barra branca */
+      bottom: 0;
     }
   </style>
 </head>
 <body>
   <header class="header">
     <div class="logo-wrapper">
-      <img src="imagens/logo.png" alt="Logo" class="relative left-10"/>
+      <img src="imagens/logo.png" alt="Logo" />
       <div>
         <span class="text-4xl font-bold text-[#FF8C00] block cormorant-garamond-semibold">Móveis Evidence</span>
         <span class="text-xl text-white block cormorant-garamond-semibold">Móveis Planejados</span>
@@ -187,14 +169,14 @@
       <span></span>
     </div>
     <nav class="nav-links">
-      <a href="#tela-inicial" id="tela-inicial-link">Tela inicial</a>
-      <a href="#sobre" id="sobre-link">Sobre</a>
-      <a href="cozinha.html" id="projetos-link">Projetos</a> <!-- Link para cozinha.html -->
+      <a href="#tela-inicial">Tela inicial</a>
+      <a href="#sobre">Sobre</a>
+      <a href="cozinha.html">Projetos</a>
     </nav>
     <nav id="mobile-menu">
-      <a href="#tela-inicial" id="tela-inicial-link-mobile">Tela inicial</a>
-      <a href="#sobre" id="sobre-link-mobile">Sobre</a>
-      <a href="cozinha.html" id="projetos-link-mobile">Projetos</a> <!-- Link para cozinha.html -->
+      <a href="#tela-inicial">Tela inicial</a>
+      <a href="#sobre">Sobre</a>
+      <a href="cozinha.html">Projetos</a>
     </nav>
   </header>
 
@@ -228,68 +210,10 @@
   </section>
 
   <script>
-    // Função para alternar o menu mobile
     function toggleMenu() {
       const menu = document.getElementById('mobile-menu');
       menu.classList.toggle('active');
     }
-
-    // Função para fechar o menu mobile ao clicar em um link
-    function closeMenuOnClick() {
-      const menu = document.getElementById('mobile-menu');
-      menu.classList.remove('active'); // Fecha o menu
-    }
-
-    // Adiciona o evento de clique para fechar o menu
-    document.querySelectorAll('#mobile-menu a').forEach(link => {
-      link.addEventListener('click', closeMenuOnClick);
-    });
-
-    // Função de easing para rolagem suave
-    function easeInOutQuad(t) {
-      return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-    }
-
-    // Função para rolagem suave personalizada
-    function smoothScroll(targetId) {
-      const targetSection = document.getElementById(targetId);
-      const startPosition = window.pageYOffset;
-      const targetPosition = targetSection.offsetTop;
-      const distance = targetPosition - startPosition;
-      const duration = 1000; // Duração da animação em milissegundos (1 segundo)
-      let startTime = null;
-
-      function animation(currentTime) {
-        if (startTime === null) startTime = currentTime;
-        const timeElapsed = currentTime - startTime;
-        const progress = Math.min(timeElapsed / duration, 1);
-        const easeProgress = easeInOutQuad(progress);
-        window.scrollTo(0, startPosition + distance * easeProgress);
-
-        if (timeElapsed < duration) {
-          requestAnimationFrame(animation);
-        }
-      }
-
-      requestAnimationFrame(animation);
-    }
-
-    // Adicionando rolagem suave ao link "Sobre"
-    document.getElementById('sobre-link').addEventListener('click', function (e) {
-      e.preventDefault(); // Evita o comportamento padrão do link
-      smoothScroll('sobre');
-    });
-
-    // Adicionando rolagem suave ao link "Tela inicial"
-    document.getElementById('tela-inicial-link').addEventListener('click', function (e) {
-      e.preventDefault(); // Evita o comportamento padrão do link
-      smoothScroll('tela-inicial');
-    });
-
-    // Removendo o event listener do link "Projetos" para redirecionar diretamente
-    document.getElementById('projetos-link').addEventListener('click', function (e) {
-      // Não é necessário preventDefault, pois queremos redirecionar para cozinha.html
-    });
   </script>
 </body>
 </html>
