@@ -7,10 +7,12 @@ Este é um projeto de exemplo com fotos e link para acessar online.
 ---
 
 ## 📸 Imagens do Projeto
-![Página da cozinha](imagens/print-cozinha.png)
-
-
 ![Print da tela inicial](imagens/print-tela.png)
+
+
+
+
+![Página da cozinha](imagens/print-cozinha.png)
 
 ---
 
