@@ -16,6 +16,7 @@ Este é um projeto de exemplo com fotos e link para acessar online.
 
 ---
 
-## 📋 Sobre
-Um site feito pra empresa Moveis Evidence como forma de Catalogo para os clientes terem a nocao de como os projetos podem ser e sobre a empresa.
+## Sobre
+
+### Um site feito para a empresa Moveis Evicence coo o intuito de exibir os projetos ja feito da empresa para os clientes e um acesso facil aos contatos com a empresa.
 
