@@ -15,8 +15,3 @@ Este é meu projeto com fotos e link para acessar online.
 ![Página da cozinha](imagens/print-cozinha.png)
 
 ---
-
-## Sobre
-
-### Um site feito para a empresa Moveis Evicence com o intuito de exibir os projetos ja feito da empresa para os clientes e um acesso facil aos contatos com a empresa.
-
