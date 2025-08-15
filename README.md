@@ -7,8 +7,9 @@ Este é um projeto de exemplo com fotos e link para acessar online.
 ---
 
 ## 📸 Imagens do Projeto
-![Logo do projeto](imagens/logo.png)
 ![Página da cozinha](imagens/print-cozinha.png)
+
+
 ![Print da tela inicial](imagens/print-tela.png)
 
 ---
