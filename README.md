@@ -8,7 +8,7 @@ Este é meu projeto para a empresa mostrar seus serviços.
 ---
 # Foco 
 
-O foco desse site é para mostrar as iamgens dos projetos ja feitos da empresa.
+O foco desse site é para mostrar as imagens dos projetos ja feitos da empresa.
 
 ---
 ## 📸 Imagens do Projeto
