@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Móveis Evidence — Móveis Planejados</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --orange: #FF8C00;
+      --orange-dim: rgba(255,140,0,0.15);
+      --black: #080808;
+      --surface: #111111;
+      --surface2: #181818;
+      --border: rgba(255,255,255,0.07);
+      --border-orange: rgba(255,140,0,0.3);
+      --text: #ffffff;
+      --text-muted: rgba(255,255,255,0.38);
+      --text-sub: rgba(255,255,255,0.60);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--black); }
+    ::-webkit-scrollbar-thumb { background: var(--orange); }
+
+    /* ─── HEADER ─── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0 60px; height: 120px;
+      background: rgba(8,8,8,0);
+      border-bottom: 1px solid rgba(255,255,255,0);
+      transition: background 0.5s ease, border-color 0.5s ease;
+    }
+    header.scrolled {
+      background: rgba(8,8,8,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo-wrap { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-wrap img { height: 86px; width: auto; object-fit: contain; mix-blend-mode: screen; }
+    .logo-text-block { display: flex; flex-direction: column; }
+    .logo-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 23px; font-weight: 600;
+      color: var(--orange); line-height: 1; letter-spacing: 0.02em;
+    }
+    .logo-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12px; font-weight: 300;
+      color: var(--text-muted);
+      letter-spacing: 0.18em; text-transform: uppercase; margin-top: 3px;
+    }
+    .nav-links { display: flex; align-items: center; gap: 40px; }
+    .nav-links a {
+      font-size: 11px; font-weight: 400;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--text-muted); text-decoration: none;
+      position: relative; transition: color 0.3s;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 1px; background: var(--orange);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.cta-link {
+      color: var(--orange); border: 1px solid var(--border-orange);
+      padding: 8px 18px; letter-spacing: 0.14em;
+    }
+    .nav-links a.cta-link::after { display: none; }
+    .nav-links a.cta-link:hover { background: var(--orange-dim); }
+
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 6px; background: none; border: none;
+    }
+    .hamburger span { display: block; width: 24px; height: 1.5px; transition: all 0.3s ease; }
+    .hamburger span:nth-child(1) { background: var(--text); }
+    .hamburger span:nth-child(2) { background: var(--orange); }
+    .hamburger span:nth-child(3) { background: var(--text); }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    .mobile-menu {
+      position: fixed; top: 120px; left: 0; right: 0;
+      background: rgba(8,8,8,0.97); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 32px 52px;
+      display: flex; flex-direction: column; gap: 24px;
+      visibility: hidden; opacity: 0; pointer-events: none;
+      transform: translateY(-8px);
+      transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), opacity 0.25s ease, visibility 0s linear 0.25s;
+      z-index: 999;
+    }
+    .mobile-menu.open {
+      visibility: visible; opacity: 1; pointer-events: auto;
+      transform: translateY(0);
+      transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), opacity 0.25s ease, visibility 0s linear 0s;
+    }
+    .mobile-menu a {
+      font-size: 13px; font-weight: 400;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--text-sub); text-decoration: none; transition: color 0.3s;
+    }
+    .mobile-menu a:hover { color: var(--orange); }
+
+    .edge-bar {
+      position: fixed; right: 0; top: 0; bottom: 0;
+      width: 3px; background: var(--orange); z-index: 500;
+      transform-origin: bottom;
+      animation: bar-grow 1.2s cubic-bezier(0.16,1,0.3,1) 0.3s both;
+    }
+    @keyframes bar-grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+
+    section { min-height: 100vh; position: relative; }
+
+    /* ─── HERO ─── */
+    #inicio {
+      display: flex; flex-direction: column;
+      justify-content: center;
+      padding: 0 52px; padding-top: 120px; overflow: hidden;
+    }
+    .hero-bg-text {
+      position: absolute; bottom: -10px; right: 48px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(120px, 18vw, 240px); font-weight: 600;
+      color: rgba(255,255,255,0.025); line-height: 1;
+      user-select: none; pointer-events: none; letter-spacing: -0.04em;
+    }
+    .hero-eyebrow {
+      display: flex; align-items: center; gap: 14px;
+      font-size: 10px; font-weight: 400;
+      letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 28px;
+      opacity: 0; animation: fade-up 0.8s ease 0.5s forwards;
+    }
+    .hero-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--orange); flex-shrink: 0; }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 7vw, 96px); font-weight: 300;
+      line-height: 1.0; color: var(--text); margin-bottom: 12px;
+      opacity: 0; animation: fade-up 0.9s ease 0.65s forwards;
+    }
+    .hero-title em { font-style: italic; color: var(--orange); font-weight: 300; }
+    .hero-title strong { font-weight: 600; }
+    .hero-byline {
+      font-size: 12px; font-weight: 400;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 48px;
+      opacity: 0; animation: fade-up 0.8s ease 0.8s forwards;
+    }
+    .hero-byline span { color: rgba(255,255,255,0.2); margin: 0 10px; }
+    .hero-actions {
+      display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
+      opacity: 0; animation: fade-up 0.8s ease 0.95s forwards;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      border: 1px solid var(--border-orange); padding: 14px 30px;
+      font-size: 11px; font-weight: 400;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--orange); text-decoration: none;
+      position: relative; overflow: hidden; transition: color 0.4s;
+    }
+    .btn-primary::before {
+      content: ''; position: absolute; inset: 0;
+      background: var(--orange); transform: translateX(-101%);
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+    .btn-primary:hover { color: #000; }
+    .btn-primary:hover::before { transform: translateX(0); }
+    .btn-primary span { position: relative; z-index: 1; }
+    .btn-primary .arrow { position: relative; z-index: 1; transition: transform 0.3s; }
+    .btn-primary:hover .arrow { transform: translateX(5px); }
+    .hero-contacts { display: flex; flex-direction: column; gap: 10px; }
+    .contact-link {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 12px; font-weight: 400; letter-spacing: 0.08em;
+      color: var(--text-muted); text-decoration: none; transition: color 0.3s;
+    }
+    .contact-link i { color: var(--orange); font-size: 14px; width: 16px; }
+    .contact-link:hover { color: var(--text); }
+
+    .section-divider {
+      width: 100%; height: 1px;
+      background: linear-gradient(to right, transparent, var(--border), transparent);
+    }
+
+    /* ─── SOBRE ─── */
+    #sobre {
+      min-height: auto; padding: 120px 52px; background: var(--black);
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .sobre-tag {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 10px; font-weight: 400;
+      letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 32px;
+    }
+    .sobre-tag::before { content: ''; width: 24px; height: 1px; background: var(--orange); }
+    .sobre-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 4.5vw, 64px); font-weight: 300;
+      line-height: 1.1; color: var(--text);
+    }
+    .sobre-title strong { font-weight: 600; }
+    .sobre-body {
+      font-size: 15px; font-weight: 300; line-height: 1.9;
+      color: var(--text-sub); margin-bottom: 32px;
+    }
+    .sobre-body + .sobre-body { margin-top: -16px; }
+    .sobre-stats {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: var(--border); margin-top: 40px;
+    }
+    .stat-box { background: var(--black); padding: 24px 28px; }
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px; font-weight: 300;
+      color: var(--orange); line-height: 1; margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 10px; font-weight: 400;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted);
+    }
+
+    /* ═══════════════════════════════════════════
+       ─── PROJETOS — CARROSSEL POR CATEGORIA ───
+       ═══════════════════════════════════════════ */
+    #projetos {
+      min-height: auto;
+      padding: 120px 52px;
+      background: var(--black);
+    }
+
+    .projetos-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 72px;
+    }
+    .projetos-tag {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 10px; font-weight: 400;
+      letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 16px;
+    }
+    .projetos-tag::before { content: ''; width: 24px; height: 1px; background: var(--orange); }
+    .projetos-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 4vw, 56px); font-weight: 300;
+      line-height: 1.1; color: var(--text);
+    }
+    .projetos-title strong { font-weight: 600; }
+
+    /* cada bloco de categoria */
+    .cat-block {
+      margin-bottom: 64px;
+    }
+    .cat-block:last-child { margin-bottom: 0; }
+
+    .cat-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .cat-label-wrap { display: flex; align-items: center; gap: 16px; }
+    .cat-line { width: 32px; height: 1px; background: var(--orange); flex-shrink: 0; }
+    .cat-name {
+      font-size: 10px; font-weight: 400;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--orange);
+    }
+    .cat-count {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px; font-weight: 300;
+      color: var(--text-muted);
+    }
+    .cat-nav { display: flex; gap: 0; }
+    .cat-btn {
+      width: 44px; height: 44px;
+      border: 1px solid var(--border-orange);
+      background: none;
+      color: var(--orange);
+      font-size: 26px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.3s, color 0.3s;
+      font-family: inherit;
+      line-height: 1;
+      padding: 0;
+    }
+    .cat-btn:first-child { border-right: none; }
+    .cat-btn:hover { background: var(--orange); color: #000; }
+    .cat-btn:disabled {
+      opacity: 0.25;
+      cursor: default;
+      pointer-events: none;
+    }
+    .carousel-wrap { position: relative; }
+
+    /* viewport do carrossel */
+    .carousel-viewport {
+      overflow: hidden;
+      width: 100%;
+      position: relative;
+    }
+
+    /* faixa que desliza */
+    .carousel-track {
+      display: flex;
+      gap: 6px;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+    }
+
+    /* cada card de foto */
+    .photo-card {
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      /* largura calculada pelo JS para mostrar N cards + peek */
+    }
+    .photo-card img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16,1,0.3,1), filter 0.4s ease;
+      filter: brightness(0.75);
+    }
+    .photo-card:hover img {
+      transform: scale(1.04);
+      filter: brightness(0.45);
+    }
+    .photo-card .card-overlay {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px 22px;
+      background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px; font-weight: 300;
+      color: var(--text); line-height: 1.2;
+      transform: translateY(4px);
+      transition: transform 0.4s ease;
+    }
+    .photo-card:hover .card-title { transform: translateY(0); }
+    .card-arrow {
+      position: absolute; top: 16px; right: 16px;
+      width: 32px; height: 32px;
+      border: 1px solid var(--border-orange);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--orange); font-size: 13px;
+      opacity: 0; transform: scale(0.8);
+      transition: all 0.3s ease;
+    }
+    .photo-card:hover .card-arrow { opacity: 1; transform: scale(1); }
+
+    /* dots de progresso */
+    .cat-dots {
+      display: flex; gap: 6px;
+      margin-top: 14px;
+      justify-content: center;
+    }
+    .cat-dot {
+      width: 24px; height: 2px;
+      background: var(--border);
+      transition: background 0.3s, width 0.3s;
+      cursor: pointer;
+    }
+    .cat-dot.active {
+      background: var(--orange);
+      width: 40px;
+    }
+
+    /* separador entre categorias */
+    .cat-sep {
+      height: 1px;
+      background: linear-gradient(to right, var(--orange-dim), transparent);
+      margin-bottom: 64px;
+    }
+
+    /* ─── LIGHTBOX ─── */
+    .lb-wrap {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.95); z-index: 2000;
+      align-items: center; justify-content: center; padding: 24px;
+    }
+    .lb-wrap.active { display: flex; }
+    .lb-wrap #lb-img {
+      max-width: 90vw; max-height: 85vh; object-fit: contain;
+      border: 1px solid rgba(255,140,0,0.2); user-select: none;
+    }
+    .lb-close {
+      position: absolute; top: 20px; right: 28px;
+      background: none; border: 1px solid rgba(255,255,255,0.2);
+      color: #fff; font-size: 20px; width: 40px; height: 40px;
+      cursor: pointer; transition: border-color 0.3s, color 0.3s;
+    }
+    .lb-close:hover { border-color: var(--orange); color: var(--orange); }
+    .lb-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: none; border: 1px solid rgba(255,255,255,0.15);
+      color: #fff; font-size: 32px; width: 48px; height: 80px;
+      cursor: pointer; transition: border-color 0.3s, color 0.3s;
+    }
+    .lb-nav:hover { border-color: var(--orange); color: var(--orange); }
+    .lb-prev { left: 20px; }
+    .lb-next { right: 20px; }
+    .lb-counter {
+      position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+      font-size: 11px; letter-spacing: 0.2em; color: rgba(255,255,255,0.4);
+    }
+
+    /* ─── CONTATO ─── */
+    #contato {
+      min-height: auto; padding: 80px 52px;
+      border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 40px; flex-wrap: wrap;
+    }
+    .contato-tag {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 10px; font-weight: 400;
+      letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 16px;
+    }
+    .contato-tag::before { content: ''; width: 24px; height: 1px; background: var(--orange); }
+    .contato-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 3.5vw, 48px); font-weight: 300;
+      line-height: 1.1; color: var(--text);
+    }
+    .contato-title em { font-style: italic; color: var(--orange); }
+    .contato-right { display: flex; flex-direction: column; gap: 16px; }
+    .contato-item {
+      display: flex; align-items: center; gap: 16px;
+      text-decoration: none; padding: 18px 28px;
+      border: 1px solid var(--border);
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .contato-item:hover { border-color: var(--border-orange); background: var(--orange-dim); }
+    .contato-item i { color: var(--orange); font-size: 18px; width: 22px; }
+    .contato-item-text { display: flex; flex-direction: column; gap: 2px; }
+    .contato-item-label {
+      font-size: 9px; font-weight: 400;
+      letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-muted);
+    }
+    .contato-item-value { font-size: 14px; font-weight: 300; color: var(--text-sub); letter-spacing: 0.04em; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 24px 52px; border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-copy { font-size: 11px; font-weight: 300; color: var(--text-muted); letter-spacing: 0.08em; }
+    .footer-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px; font-weight: 400; color: var(--orange); letter-spacing: 0.06em;
+    }
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal {
+      opacity: 0; transform: translateY(32px);
+      transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      header { padding: 0 24px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu { padding: 32px 24px; }
+      #inicio { padding: 0 24px; padding-top: 120px; min-height: 100svh; }
+      .hero-bg-text { font-size: 100px; right: 16px; }
+      #sobre { grid-template-columns: 1fr; gap: 48px; padding: 80px 24px; }
+      #projetos { padding: 80px 24px; }
+      .projetos-header { flex-direction: column; align-items: flex-start; gap: 24px; }
+      #contato { padding: 64px 24px; flex-direction: column; align-items: flex-start; }
+      footer { padding: 20px 24px; }
+      .edge-bar { display: none; }
+    }
+    @media (max-width: 560px) {
+      .sobre-stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="edge-bar"></div>
+
+  <!-- ═══ HEADER ═══ -->
+  <header id="header">
+    <a href="#inicio" class="logo-wrap">
+      <img src="imagens/logo.png" alt="Móveis Evidence"/>
+      <div class="logo-text-block">
+        <span class="logo-name">Móveis Evidence</span>
+        <span class="logo-sub">Móveis Planejados</span>
+      </div>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links">
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato" class="cta-link">Contato</a>
+    </nav>
+  </header>
+
+  <nav class="mobile-menu" id="mobile-menu">
+    <a href="#inicio" onclick="toggleMenu()">Início</a>
+    <a href="#sobre" onclick="toggleMenu()">Sobre</a>
+    <a href="#projetos" onclick="toggleMenu()">Projetos</a>
+    <a href="#contato" onclick="toggleMenu()">Contato</a>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section id="inicio">
+    <div class="hero-bg-text">ME</div>
+    <div class="hero-eyebrow">Marcenaria de Precisão · Brasília</div>
+    <h1 class="hero-title">
+      Fabricamos<br>
+      <em>Sonhos</em><br>
+      <strong>Sob Medida.</strong>
+    </h1>
+    <p class="hero-byline">by Julio Ramalho <span>·</span> desde 2021</p>
+    <div class="hero-actions">
+      <a href="#projetos" class="btn-primary">
+        <span>Ver Projetos</span>
+        <span class="arrow">→</span>
+      </a>
+      <div class="hero-contacts">
+        <a href="https://www.instagram.com/moveis_evidence" target="_blank" class="contact-link">
+          <i class="fab fa-instagram"></i>@moveis_evidence
+        </a>
+        <a href="https://wa.me/5561984268735" target="_blank" class="contact-link">
+          <i class="fab fa-whatsapp"></i>(61) 98426-8735
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══ SOBRE ═══ -->
+  <section id="sobre">
+    <div class="sobre-left reveal">
+      <div class="sobre-tag">Sobre nós</div>
+      <h2 class="sobre-title">
+        Cada detalhe<br>conta uma<br><strong>história.</strong>
+      </h2>
+    </div>
+    <div class="sobre-right reveal reveal-delay-2">
+      <p class="sobre-body">
+        Fundada em 2021, a Móveis Evidence nasceu da paixão pela marcenaria de qualidade. Transformamos espaços através de móveis planejados que unem estética e funcionalidade.
+      </p>
+      <p class="sobre-body">
+        Cada projeto é tratado de forma única — do briefing ao acabamento, com atenção cirúrgica aos detalhes e compromisso com o prazo.
+      </p>
+      <div class="sobre-stats">
+        <div class="stat-box"><div class="stat-number">3+</div><div class="stat-label">Anos no mercado</div></div>
+        <div class="stat-box"><div class="stat-number">100%</div><div class="stat-label">Sob medida</div></div>
+        <div class="stat-box"><div class="stat-number">5★</div><div class="stat-label">Satisfação</div></div>
+        <div class="stat-box"><div class="stat-number">∞</div><div class="stat-label">Possibilidades</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══ PROJETOS — CARROSSEL POR CATEGORIA ═══ -->
+  <section id="projetos">
+    <div class="projetos-header reveal">
+      <div>
+        <div class="projetos-tag">Portfólio</div>
+        <h2 class="projetos-title">Nossos<br><strong>Projetos.</strong></h2>
+      </div>
+    </div>
+
+    <!-- Os blocos de carrossel são gerados pelo JavaScript abaixo -->
+    <div id="carrosseis"></div>
+  </section>
+
+  <!-- ─── LIGHTBOX ─── -->
+  <div id="lightbox" class="lb-wrap" onclick="closeLightboxOutside(event)">
+    <button class="lb-close" onclick="closeLightbox()">✕</button>
+    <button class="lb-nav lb-prev" onclick="lbNav(-1)">‹</button>
+    <img id="lb-img" src="" alt=""/>
+    <button class="lb-nav lb-next" onclick="lbNav(1)">›</button>
+    <div id="lb-counter" class="lb-counter"></div>
+  </div>
+
+  <!-- ═══ CONTATO ═══ -->
+  <section id="contato">
+    <div class="contato-left reveal">
+      <div class="contato-tag">Fale conosco</div>
+      <h2 class="contato-title">Vamos criar algo<br><em>incrível</em> juntos?</h2>
+    </div>
+    <div class="contato-right reveal reveal-delay-2">
+      <a href="https://www.instagram.com/moveis_evidence" target="_blank" class="contato-item">
+        <i class="fab fa-instagram"></i>
+        <div class="contato-item-text">
+          <span class="contato-item-label">Instagram</span>
+          <span class="contato-item-value">@moveis_evidence</span>
+        </div>
+      </a>
+      <a href="https://wa.me/5561984268735" target="_blank" class="contato-item">
+        <i class="fab fa-whatsapp"></i>
+        <div class="contato-item-text">
+          <span class="contato-item-label">WhatsApp</span>
+          <span class="contato-item-value">(61) 98426-8735</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <span class="footer-copy">© 2025 Móveis Evidence · Todos os direitos reservados</span>
+    <span class="footer-mark">Móveis Evidence</span>
+  </footer>
+
+  <script>
+    /* ══════════════════════════════════════════════════════════
+     *  CONFIGURAÇÃO DAS CATEGORIAS
+     *  Para adicionar fotos: aumente o count e coloque o arquivo
+     *  na pasta correspondente com o número certo.
+     * ══════════════════════════════════════════════════════════ */
+    const CATEGORIAS = [
+      { id: 'cozinha',  label: 'Cozinha',    folder: 'imagens/cozinha',   count: 16, cardTitle: (i) => ['Cozinha Planejada','Cozinha Gourmet','Cozinha Americana','Cozinha Sob Medida','Cozinha Moderna','Cozinha Compacta','Cozinha em L','Cozinha em U','Cozinha Integrada','Cozinha com Ilha','Cozinha Rústica','Cozinha Clean','Cozinha Contemporânea','Cozinha Industrial','Cozinha Aberta','Cozinha Completa'][i] },
+      { id: 'quarto',   label: 'Quarto',     folder: 'imagens/quarto',    count: 13, cardTitle: (i) => ['Quarto Planejado','Closet & Dormitório','Quarto Casal','Quarto Infantil','Quarto Planejado','Quarto com Closet','Quarto Solteiro','Quarto Master','Quarto Completo','Suíte Planejada','Quarto Moderno','Quarto Sob Medida','Quarto Juvenil'][i] },
+      { id: 'banheiro', label: 'Banheiro',   folder: 'imagens/banheiro',  count: 7,  cardTitle: (i) => ['Banheiro Planejado','Banheiro Sob Medida','Banheiro Moderno','Banheiro Completo','Banheiro Compacto','Lavabo Planejado','Banheiro Social'][i] },
+      { id: 'sala',     label: 'Sala',       folder: 'imagens/sala',      count: 11, cardTitle: (i) => ['Sala de Estar','Sala de Jantar','Sala Integrada','Sala Moderna','Sala com Painel','Home Theater','Sala Compacta','Sala de TV','Sala Contemporânea','Sala com Lareira','Sala Planejada'][i] },
+      { id: 'projeto',  label: 'Projeto 3D', folder: 'imagens/projeto',   count: 10, cardTitle: (i) => ['Renderização 3D','Projeto Cozinha','Projeto Quarto','Projeto Banheiro','Projeto Sala','Planta 3D','Perspectiva 3D','Projeto Closet','Ambientação 3D','Projeto Completo'][i] },
+      { id: 'outros',   label: 'Outros',     folder: 'imagens/Outros',    count: 14, cardTitle: (i) => ['Projeto Especial','Área de Serviço','Home Office','Escritório Planejado','Varanda Gourmet','Espaço Gourmet','Garagem Planejada','Lavanderia','Depósito Planejado','Biblioteca','Painel Planejado','Espaço Infantil','Espaço Fitness','Projeto Exclusivo'][i] },
+    ];
+
+    /* ── Quantos cards visíveis por vez (responsivo) ── */
+    function visibleCards() {
+      const w = window.innerWidth;
+      if (w < 560) return 1;
+      if (w < 900) return 2;
+      return 3; /* desktop mostra 3 + peek do 4º */
+    }
+
+    /* ── Altura do card (proporção 4:3) ── */
+    function cardHeight(cardWidth) {
+      return Math.round(cardWidth * 0.75);
+    }
+
+    /* ── Estado de cada carrossel ── */
+    const state = {};
+
+    /* ── Constrói todos os blocos de carrossel ── */
+    function buildCarrosseis() {
+      const container = document.getElementById('carrosseis');
+      container.innerHTML = '';
+
+      CATEGORIAS.forEach((cat, catIdx) => {
+        /* wrapper do bloco */
+        const block = document.createElement('div');
+        block.className = 'cat-block reveal';
+        block.id = `cat-${cat.id}`;
+
+        /* cabeçalho */
+        block.innerHTML = `
+          <div class="cat-header">
+            <div class="cat-label-wrap">
+              <div class="cat-line"></div>
+              <span class="cat-name">${cat.label}</span>
+              <span class="cat-count" id="count-${cat.id}">0 fotos</span>
+            </div>
+            <div class="cat-nav">
+              <button class="cat-btn" id="prev-${cat.id}">&#8249;</button>
+              <button class="cat-btn" id="next-${cat.id}">&#8250;</button>
+            </div>
+          </div>
+          <div class="carousel-wrap">
+            <div class="carousel-viewport" id="vp-${cat.id}">
+              <div class="carousel-track" id="track-${cat.id}"></div>
+            </div>
+          </div>
+          <div class="cat-dots" id="dots-${cat.id}"></div>
+        `;
+
+        container.appendChild(block);
+
+        /* eventos dos botões após inserir no DOM */
+        block.querySelector(`#prev-${cat.id}`).addEventListener('click', () => slide(cat.id, -1));
+        block.querySelector(`#next-${cat.id}`).addEventListener('click', () => slide(cat.id,  1));
+
+        /* separador entre categorias (não no último) */
+        if (catIdx < CATEGORIAS.length - 1) {
+          const sep = document.createElement('div');
+          sep.className = 'cat-sep';
+          container.appendChild(sep);
+        }
+
+        /* estado inicial */
+        state[cat.id] = { index: 0, loaded: [] };
+
+        /* carrega imagens */
+        loadCat(cat);
+      });
+
+      /* registra reveal observer nos blocos */
+      document.querySelectorAll('.cat-block').forEach(el => revealObserver.observe(el));
+
+      /* ajusta tamanhos */
+      resizeAll();
+    }
+
+    /* ── Carrega as imagens de uma categoria ── */
+    function loadCat(cat) {
+      const track = document.getElementById(`track-${cat.id}`);
+
+      for (let i = 0; i < cat.count; i++) {
+        const idx = i;
+        const card = document.createElement('div');
+        card.className = 'photo-card';
+        card.dataset.cat = cat.id;
+        card.dataset.idx = idx;
+        card.style.display = 'none'; /* oculto até carregar */
+
+        const img = document.createElement('img');
+        img.alt = cat.cardTitle(idx);
+        img.src = `${cat.folder}/${idx + 1}.jpg`;
+
+        img.addEventListener('load', () => {
+          card.style.display = '';
+          state[cat.id].loaded.push(idx);
+          updateCount(cat);
+          updateDots(cat.id);
+          updateNavBtns(cat.id);
+          resizeCat(cat.id);
+        });
+        img.addEventListener('error', () => {
+          card.remove();
+          updateCount(cat);
+        });
+
+        const overlay = document.createElement('div');
+        overlay.className = 'card-overlay';
+        overlay.innerHTML = `
+          <div class="card-title">${cat.cardTitle(idx)}</div>
+          <div class="card-arrow">↗</div>
+        `;
+
+        card.appendChild(img);
+        card.appendChild(overlay);
+        card.addEventListener('click', () => openLightbox(cat.id, idx + 1));
+        track.appendChild(card);
+      }
+    }
+
+    /* ── Atualiza contagem de fotos carregadas ── */
+    function updateCount(cat) {
+      const el = document.getElementById(`count-${cat.id}`);
+      if (el) {
+        const n = document.getElementById(`track-${cat.id}`)
+          .querySelectorAll('.photo-card:not([style*="display: none"])').length;
+        el.textContent = `${n} foto${n !== 1 ? 's' : ''}`;
+      }
+    }
+
+    /* ── Redimensiona todos os carrosseis ── */
+    function resizeAll() {
+      CATEGORIAS.forEach(cat => resizeCat(cat.id));
+    }
+
+    function resizeCat(catId) {
+      const vp = document.getElementById(`vp-${catId}`);
+      const track = document.getElementById(`track-${catId}`);
+      if (!vp || !track) return;
+
+      const vpWidth = vp.offsetWidth;
+      const n = visibleCards();
+      const gap = 6;
+      /* peek do próximo card */
+      const peek = vpWidth * 0.06;
+      const cardW = Math.floor((vpWidth - gap * (n - 1) - peek) / n);
+      const cardH = cardHeight(cardW);
+
+      track.querySelectorAll('.photo-card').forEach(card => {
+        card.style.width = cardW + 'px';
+        card.style.height = cardH + 'px';
+      });
+
+      applySlide(catId);
+    }
+
+    /* ── Desliza o carrossel ── */
+    function slide(catId, dir) {
+      const track = document.getElementById(`track-${catId}`);
+      const cards = [...track.querySelectorAll('.photo-card:not([style*="display: none"])')];
+      if (!cards.length) return;
+
+      const n = visibleCards();
+      const maxIdx = Math.max(0, cards.length - n);
+      state[catId].index = Math.min(maxIdx, Math.max(0, state[catId].index + dir));
+
+      applySlide(catId);
+      updateDots(catId);
+      updateNavBtns(catId);
+    }
+
+    function applySlide(catId) {
+      const track = document.getElementById(`track-${catId}`);
+      const cards = [...track.querySelectorAll('.photo-card')];
+      if (!cards.length) return;
+
+      const gap = 6;
+      const cardW = parseInt(cards[0].style.width) || 0;
+      const offset = state[catId].index * (cardW + gap);
+      track.style.transform = `translateX(-${offset}px)`;
+
+      updateNavBtns(catId);
+    }
+
+    function updateNavBtns(catId) {
+      const track = document.getElementById(`track-${catId}`);
+      if (!track) return;
+      const cards = [...track.querySelectorAll('.photo-card')].filter(c => c.style.display !== 'none');
+      const n = visibleCards();
+      const maxIdx = Math.max(0, cards.length - n);
+      const idx = state[catId].index;
+
+      const prev = document.getElementById(`prev-${catId}`);
+      const next = document.getElementById(`next-${catId}`);
+      if (prev) {
+        prev.disabled = idx <= 0;
+        prev.style.opacity = idx <= 0 ? '0.25' : '1';
+      }
+      if (next) {
+        next.disabled = idx >= maxIdx;
+        next.style.opacity = idx >= maxIdx ? '0.25' : '1';
+      }
+    }
+
+    function updateDots(catId) {
+      const track = document.getElementById(`track-${catId}`);
+      const dotsEl = document.getElementById(`dots-${catId}`);
+      if (!dotsEl) return;
+
+      const cards = [...track.querySelectorAll('.photo-card:not([style*="display: none"])')];
+      const n = visibleCards();
+      const pages = Math.max(1, Math.ceil(cards.length / n));
+      const currentPage = Math.floor(state[catId].index / n);
+
+      dotsEl.innerHTML = '';
+      if (pages <= 1) return;
+
+      for (let i = 0; i < pages; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'cat-dot' + (i === currentPage ? ' active' : '');
+        dot.onclick = () => {
+          state[catId].index = i * n;
+          applySlide(catId);
+          updateDots(catId);
+          updateNavBtns(catId);
+        };
+        dotsEl.appendChild(dot);
+      }
+    }
+
+    /* ── Header scroll ── */
+    window.addEventListener('scroll', () => {
+      document.getElementById('header').classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    /* ── Menu mobile ── */
+    function toggleMenu() {
+      document.getElementById('hamburger').classList.toggle('open');
+      document.getElementById('mobile-menu').classList.toggle('open');
+    }
+
+    /* ── Scroll reveal ── */
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    /* ── Resize ── */
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        resizeAll();
+        CATEGORIAS.forEach(cat => {
+          state[cat.id].index = 0;
+          updateDots(cat.id);
+          updateNavBtns(cat.id);
+        });
+      }, 150);
+    });
+
+    /* ══════════════════════════════════════════
+     *  LIGHTBOX
+     * ══════════════════════════════════════════ */
+    const FOTO_COUNT = {
+      cozinha: 16, quarto: 13, banheiro: 7,
+      sala: 11, projeto: 10, outros: 14,
+    };
+    const FOTO_FOLDER = {
+      cozinha: 'imagens/cozinha', quarto: 'imagens/quarto',
+      banheiro: 'imagens/banheiro', sala: 'imagens/sala',
+      projeto: 'imagens/projeto', outros: 'imagens/Outros',
+    };
+
+    let lbCat = '', lbIdx = 1;
+
+    function openLightbox(cat, idx) {
+      lbCat = cat; lbIdx = idx;
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+      lbShow();
+    }
+    function lbShow() {
+      document.getElementById('lb-img').src = `${FOTO_FOLDER[lbCat]}/${lbIdx}.jpg`;
+      document.getElementById('lb-counter').textContent = `${lbIdx} / ${FOTO_COUNT[lbCat]}`;
+    }
+    function lbNav(dir) {
+      const total = FOTO_COUNT[lbCat];
+      lbIdx = ((lbIdx - 1 + dir + total) % total) + 1;
+      lbShow();
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    function closeLightboxOutside(e) {
+      if (e.target.id === 'lightbox') closeLightbox();
+    }
+    document.addEventListener('keydown', e => {
+      if (!document.getElementById('lightbox').classList.contains('active')) return;
+      if (e.key === 'ArrowRight') lbNav(1);
+      if (e.key === 'ArrowLeft')  lbNav(-1);
+      if (e.key === 'Escape')     closeLightbox();
+    });
+
+    /* ── Swipe touch no carrossel ── */
+    let touchStartX = 0;
+    document.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    document.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) < 40) return;
+      const vp = e.target.closest('.carousel-viewport');
+      if (!vp) return;
+      const catId = vp.id.replace('vp-', '');
+      slide(catId, diff > 0 ? 1 : -1);
+    });
+
+    /* ── INICIA TUDO ── */
+    buildCarrosseis();
+  </script>
+</body>
+</html>
