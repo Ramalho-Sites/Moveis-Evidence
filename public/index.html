@@ -270,10 +270,7 @@
     }
     .projetos-title strong { font-weight: 600; }
 
-    /* cada bloco de categoria */
-    .cat-block {
-      margin-bottom: 64px;
-    }
+    .cat-block { margin-bottom: 64px; }
     .cat-block:last-child { margin-bottom: 0; }
 
     .cat-header {
@@ -296,64 +293,32 @@
     .cat-btn {
       width: 44px; height: 44px;
       border: 1px solid var(--border-orange);
-      background: none;
-      color: var(--orange);
-      font-size: 26px;
-      cursor: pointer;
+      background: none; color: var(--orange);
+      font-size: 26px; cursor: pointer;
       display: flex; align-items: center; justify-content: center;
       transition: background 0.3s, color 0.3s;
-      font-family: inherit;
-      line-height: 1;
-      padding: 0;
+      font-family: inherit; line-height: 1; padding: 0;
     }
     .cat-btn:first-child { border-right: none; }
     .cat-btn:hover { background: var(--orange); color: #000; }
-    .cat-btn:disabled {
-      opacity: 0.25;
-      cursor: default;
-      pointer-events: none;
-    }
+    .cat-btn:disabled { opacity: 0.25; cursor: default; pointer-events: none; }
     .carousel-wrap { position: relative; }
-
-    /* viewport do carrossel */
-    .carousel-viewport {
-      overflow: hidden;
-      width: 100%;
-      position: relative;
-    }
-
-    /* faixa que desliza */
+    .carousel-viewport { overflow: hidden; width: 100%; position: relative; }
     .carousel-track {
-      display: flex;
-      gap: 6px;
+      display: flex; gap: 6px;
       transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: transform;
     }
-
-    /* cada card de foto */
-    .photo-card {
-      flex-shrink: 0;
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      /* largura calculada pelo JS para mostrar N cards + peek */
-    }
+    .photo-card { flex-shrink: 0; position: relative; overflow: hidden; cursor: pointer; }
     .photo-card img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      display: block; width: 100%; height: 100%; object-fit: cover;
       transition: transform 0.6s cubic-bezier(0.16,1,0.3,1), filter 0.4s ease;
       filter: brightness(0.75);
     }
-    .photo-card:hover img {
-      transform: scale(1.04);
-      filter: brightness(0.45);
-    }
+    .photo-card:hover img { transform: scale(1.04); filter: brightness(0.45); }
     .photo-card .card-overlay {
       position: absolute; inset: 0;
-      display: flex; flex-direction: column;
-      justify-content: flex-end;
+      display: flex; flex-direction: column; justify-content: flex-end;
       padding: 20px 22px;
       background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 55%);
       pointer-events: none;
@@ -362,8 +327,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 18px; font-weight: 300;
       color: var(--text); line-height: 1.2;
-      transform: translateY(4px);
-      transition: transform 0.4s ease;
+      transform: translateY(4px); transition: transform 0.4s ease;
     }
     .photo-card:hover .card-title { transform: translateY(0); }
     .card-arrow {
@@ -372,34 +336,13 @@
       border: 1px solid var(--border-orange);
       display: flex; align-items: center; justify-content: center;
       color: var(--orange); font-size: 13px;
-      opacity: 0; transform: scale(0.8);
-      transition: all 0.3s ease;
+      opacity: 0; transform: scale(0.8); transition: all 0.3s ease;
     }
     .photo-card:hover .card-arrow { opacity: 1; transform: scale(1); }
-
-    /* dots de progresso */
-    .cat-dots {
-      display: flex; gap: 6px;
-      margin-top: 14px;
-      justify-content: center;
-    }
-    .cat-dot {
-      width: 24px; height: 2px;
-      background: var(--border);
-      transition: background 0.3s, width 0.3s;
-      cursor: pointer;
-    }
-    .cat-dot.active {
-      background: var(--orange);
-      width: 40px;
-    }
-
-    /* separador entre categorias */
-    .cat-sep {
-      height: 1px;
-      background: linear-gradient(to right, var(--orange-dim), transparent);
-      margin-bottom: 64px;
-    }
+    .cat-dots { display: flex; gap: 6px; margin-top: 14px; justify-content: center; }
+    .cat-dot { width: 24px; height: 2px; background: var(--border); transition: background 0.3s, width 0.3s; cursor: pointer; }
+    .cat-dot.active { background: var(--orange); width: 40px; }
+    .cat-sep { height: 1px; background: linear-gradient(to right, var(--orange-dim), transparent); margin-bottom: 64px; }
 
     /* ─── LIGHTBOX ─── */
     .lb-wrap {
@@ -408,30 +351,14 @@
       align-items: center; justify-content: center; padding: 24px;
     }
     .lb-wrap.active { display: flex; }
-    .lb-wrap #lb-img {
-      max-width: 90vw; max-height: 85vh; object-fit: contain;
-      border: 1px solid rgba(255,140,0,0.2); user-select: none;
-    }
-    .lb-close {
-      position: absolute; top: 20px; right: 28px;
-      background: none; border: 1px solid rgba(255,255,255,0.2);
-      color: #fff; font-size: 20px; width: 40px; height: 40px;
-      cursor: pointer; transition: border-color 0.3s, color 0.3s;
-    }
+    .lb-wrap #lb-img { max-width: 90vw; max-height: 85vh; object-fit: contain; border: 1px solid rgba(255,140,0,0.2); user-select: none; }
+    .lb-close { position: absolute; top: 20px; right: 28px; background: none; border: 1px solid rgba(255,255,255,0.2); color: #fff; font-size: 20px; width: 40px; height: 40px; cursor: pointer; transition: border-color 0.3s, color 0.3s; }
     .lb-close:hover { border-color: var(--orange); color: var(--orange); }
-    .lb-nav {
-      position: absolute; top: 50%; transform: translateY(-50%);
-      background: none; border: 1px solid rgba(255,255,255,0.15);
-      color: #fff; font-size: 32px; width: 48px; height: 80px;
-      cursor: pointer; transition: border-color 0.3s, color 0.3s;
-    }
+    .lb-nav { position: absolute; top: 50%; transform: translateY(-50%); background: none; border: 1px solid rgba(255,255,255,0.15); color: #fff; font-size: 32px; width: 48px; height: 80px; cursor: pointer; transition: border-color 0.3s, color 0.3s; }
     .lb-nav:hover { border-color: var(--orange); color: var(--orange); }
     .lb-prev { left: 20px; }
     .lb-next { right: 20px; }
-    .lb-counter {
-      position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
-      font-size: 11px; letter-spacing: 0.2em; color: rgba(255,255,255,0.4);
-    }
+    .lb-counter { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); font-size: 11px; letter-spacing: 0.2em; color: rgba(255,255,255,0.4); }
 
     /* ─── CONTATO ─── */
     #contato {
@@ -440,52 +367,25 @@
       display: flex; justify-content: space-between; align-items: center;
       gap: 40px; flex-wrap: wrap;
     }
-    .contato-tag {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-size: 10px; font-weight: 400;
-      letter-spacing: 0.24em; text-transform: uppercase;
-      color: var(--orange); margin-bottom: 16px;
-    }
+    .contato-tag { display: inline-flex; align-items: center; gap: 10px; font-size: 10px; font-weight: 400; letter-spacing: 0.24em; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
     .contato-tag::before { content: ''; width: 24px; height: 1px; background: var(--orange); }
-    .contato-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(28px, 3.5vw, 48px); font-weight: 300;
-      line-height: 1.1; color: var(--text);
-    }
+    .contato-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.5vw, 48px); font-weight: 300; line-height: 1.1; color: var(--text); }
     .contato-title em { font-style: italic; color: var(--orange); }
     .contato-right { display: flex; flex-direction: column; gap: 16px; }
-    .contato-item {
-      display: flex; align-items: center; gap: 16px;
-      text-decoration: none; padding: 18px 28px;
-      border: 1px solid var(--border);
-      transition: border-color 0.3s, background 0.3s;
-    }
+    .contato-item { display: flex; align-items: center; gap: 16px; text-decoration: none; padding: 18px 28px; border: 1px solid var(--border); transition: border-color 0.3s, background 0.3s; }
     .contato-item:hover { border-color: var(--border-orange); background: var(--orange-dim); }
     .contato-item i { color: var(--orange); font-size: 18px; width: 22px; }
     .contato-item-text { display: flex; flex-direction: column; gap: 2px; }
-    .contato-item-label {
-      font-size: 9px; font-weight: 400;
-      letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-muted);
-    }
+    .contato-item-label { font-size: 9px; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-muted); }
     .contato-item-value { font-size: 14px; font-weight: 300; color: var(--text-sub); letter-spacing: 0.04em; }
 
     /* ─── FOOTER ─── */
-    footer {
-      padding: 24px 52px; border-top: 1px solid var(--border);
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 12px;
-    }
+    footer { padding: 24px 52px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
     .footer-copy { font-size: 11px; font-weight: 300; color: var(--text-muted); letter-spacing: 0.08em; }
-    .footer-mark {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 13px; font-weight: 400; color: var(--orange); letter-spacing: 0.06em;
-    }
+    .footer-mark { font-family: 'Cormorant Garamond', serif; font-size: 13px; font-weight: 400; color: var(--orange); letter-spacing: 0.06em; }
 
     /* ─── SCROLL REVEAL ─── */
-    .reveal {
-      opacity: 0; transform: translateY(32px);
-      transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16,1,0.3,1);
-    }
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16,1,0.3,1); }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
@@ -555,7 +455,7 @@
       <em>Sonhos</em><br>
       <strong>Sob Medida.</strong>
     </h1>
-    <p class="hero-byline">by Julio Ramalho <span>·</span> desde 2021</p>
+    <p class="hero-byline">by Julio Ramalho <span>·</span> desde 1991</p>
     <div class="hero-actions">
       <a href="#projetos" class="btn-primary">
         <span>Ver Projetos</span>
@@ -584,13 +484,13 @@
     </div>
     <div class="sobre-right reveal reveal-delay-2">
       <p class="sobre-body">
-        Fundada em 2021, a Móveis Evidence nasceu da paixão pela marcenaria de qualidade. Transformamos espaços através de móveis planejados que unem estética e funcionalidade.
+        Mais de 30 anos de história, uma marcenaria completa na Santa Maria e projetos que chegam a cada canto do Distrito Federal e Entorno. A Móveis Evidence foi fundada por Julio Ramalho no Gama–DF, e cresceu sustentada por três pilares inegociáveis: técnica apurada, atendimento diferenciado e compromisso com cada prazo acordado.
       </p>
       <p class="sobre-body">
-        Cada projeto é tratado de forma única — do briefing ao acabamento, com atenção cirúrgica aos detalhes e compromisso com o prazo.
+        Somos fruto de uma tradição familiar de marcenaria — e é essa herança que garante o nível de entrega que nossos clientes reconhecem e confiam. Cada projeto recebe atenção cirúrgica, do planejamento ao acabamento.
       </p>
       <div class="sobre-stats">
-        <div class="stat-box"><div class="stat-number">3+</div><div class="stat-label">Anos no mercado</div></div>
+        <div class="stat-box"><div class="stat-number">30+</div><div class="stat-label">Anos no mercado</div></div>
         <div class="stat-box"><div class="stat-number">100%</div><div class="stat-label">Sob medida</div></div>
         <div class="stat-box"><div class="stat-number">5★</div><div class="stat-label">Satisfação</div></div>
         <div class="stat-box"><div class="stat-number">∞</div><div class="stat-label">Possibilidades</div></div>
@@ -608,8 +508,6 @@
         <h2 class="projetos-title">Nossos<br><strong>Projetos.</strong></h2>
       </div>
     </div>
-
-    <!-- Os blocos de carrossel são gerados pelo JavaScript abaixo -->
     <div id="carrosseis"></div>
   </section>
 
@@ -653,11 +551,6 @@
   </footer>
 
   <script>
-    /* ══════════════════════════════════════════════════════════
-     *  CONFIGURAÇÃO DAS CATEGORIAS
-     *  Para adicionar fotos: aumente o count e coloque o arquivo
-     *  na pasta correspondente com o número certo.
-     * ══════════════════════════════════════════════════════════ */
     const CATEGORIAS = [
       { id: 'cozinha',  label: 'Cozinha',    folder: 'imagens/cozinha',   count: 16, cardTitle: (i) => ['Cozinha Planejada','Cozinha Gourmet','Cozinha Americana','Cozinha Sob Medida','Cozinha Moderna','Cozinha Compacta','Cozinha em L','Cozinha em U','Cozinha Integrada','Cozinha com Ilha','Cozinha Rústica','Cozinha Clean','Cozinha Contemporânea','Cozinha Industrial','Cozinha Aberta','Cozinha Completa'][i] },
       { id: 'quarto',   label: 'Quarto',     folder: 'imagens/quarto',    count: 13, cardTitle: (i) => ['Quarto Planejado','Closet & Dormitório','Quarto Casal','Quarto Infantil','Quarto Planejado','Quarto com Closet','Quarto Solteiro','Quarto Master','Quarto Completo','Suíte Planejada','Quarto Moderno','Quarto Sob Medida','Quarto Juvenil'][i] },
@@ -667,34 +560,26 @@
       { id: 'outros',   label: 'Outros',     folder: 'imagens/Outros',    count: 14, cardTitle: (i) => ['Projeto Especial','Área de Serviço','Home Office','Escritório Planejado','Varanda Gourmet','Espaço Gourmet','Garagem Planejada','Lavanderia','Depósito Planejado','Biblioteca','Painel Planejado','Espaço Infantil','Espaço Fitness','Projeto Exclusivo'][i] },
     ];
 
-    /* ── Quantos cards visíveis por vez (responsivo) ── */
     function visibleCards() {
       const w = window.innerWidth;
       if (w < 560) return 1;
       if (w < 900) return 2;
-      return 3; /* desktop mostra 3 + peek do 4º */
+      return 3;
     }
 
-    /* ── Altura do card (proporção 4:3) ── */
-    function cardHeight(cardWidth) {
-      return Math.round(cardWidth * 0.75);
-    }
+    function cardHeight(cardWidth) { return Math.round(cardWidth * 0.75); }
 
-    /* ── Estado de cada carrossel ── */
     const state = {};
 
-    /* ── Constrói todos os blocos de carrossel ── */
     function buildCarrosseis() {
       const container = document.getElementById('carrosseis');
       container.innerHTML = '';
 
       CATEGORIAS.forEach((cat, catIdx) => {
-        /* wrapper do bloco */
         const block = document.createElement('div');
         block.className = 'cat-block reveal';
         block.id = `cat-${cat.id}`;
 
-        /* cabeçalho */
         block.innerHTML = `
           <div class="cat-header">
             <div class="cat-label-wrap">
@@ -717,32 +602,23 @@
 
         container.appendChild(block);
 
-        /* eventos dos botões após inserir no DOM */
         block.querySelector(`#prev-${cat.id}`).addEventListener('click', () => slide(cat.id, -1));
         block.querySelector(`#next-${cat.id}`).addEventListener('click', () => slide(cat.id,  1));
 
-        /* separador entre categorias (não no último) */
         if (catIdx < CATEGORIAS.length - 1) {
           const sep = document.createElement('div');
           sep.className = 'cat-sep';
           container.appendChild(sep);
         }
 
-        /* estado inicial */
         state[cat.id] = { index: 0, loaded: [] };
-
-        /* carrega imagens */
         loadCat(cat);
       });
 
-      /* registra reveal observer nos blocos */
       document.querySelectorAll('.cat-block').forEach(el => revealObserver.observe(el));
-
-      /* ajusta tamanhos */
       resizeAll();
     }
 
-    /* ── Carrega as imagens de uma categoria ── */
     function loadCat(cat) {
       const track = document.getElementById(`track-${cat.id}`);
 
@@ -752,7 +628,7 @@
         card.className = 'photo-card';
         card.dataset.cat = cat.id;
         card.dataset.idx = idx;
-        card.style.display = 'none'; /* oculto até carregar */
+        card.style.display = 'none';
 
         const img = document.createElement('img');
         img.alt = cat.cardTitle(idx);
@@ -766,17 +642,11 @@
           updateNavBtns(cat.id);
           resizeCat(cat.id);
         });
-        img.addEventListener('error', () => {
-          card.remove();
-          updateCount(cat);
-        });
+        img.addEventListener('error', () => { card.remove(); updateCount(cat); });
 
         const overlay = document.createElement('div');
         overlay.className = 'card-overlay';
-        overlay.innerHTML = `
-          <div class="card-title">${cat.cardTitle(idx)}</div>
-          <div class="card-arrow">↗</div>
-        `;
+        overlay.innerHTML = `<div class="card-title">${cat.cardTitle(idx)}</div><div class="card-arrow">↗</div>`;
 
         card.appendChild(img);
         card.appendChild(overlay);
@@ -785,52 +655,37 @@
       }
     }
 
-    /* ── Atualiza contagem de fotos carregadas ── */
     function updateCount(cat) {
       const el = document.getElementById(`count-${cat.id}`);
       if (el) {
-        const n = document.getElementById(`track-${cat.id}`)
-          .querySelectorAll('.photo-card:not([style*="display: none"])').length;
+        const n = document.getElementById(`track-${cat.id}`).querySelectorAll('.photo-card:not([style*="display: none"])').length;
         el.textContent = `${n} foto${n !== 1 ? 's' : ''}`;
       }
     }
 
-    /* ── Redimensiona todos os carrosseis ── */
-    function resizeAll() {
-      CATEGORIAS.forEach(cat => resizeCat(cat.id));
-    }
+    function resizeAll() { CATEGORIAS.forEach(cat => resizeCat(cat.id)); }
 
     function resizeCat(catId) {
       const vp = document.getElementById(`vp-${catId}`);
       const track = document.getElementById(`track-${catId}`);
       if (!vp || !track) return;
-
       const vpWidth = vp.offsetWidth;
       const n = visibleCards();
       const gap = 6;
-      /* peek do próximo card */
       const peek = vpWidth * 0.06;
       const cardW = Math.floor((vpWidth - gap * (n - 1) - peek) / n);
       const cardH = cardHeight(cardW);
-
-      track.querySelectorAll('.photo-card').forEach(card => {
-        card.style.width = cardW + 'px';
-        card.style.height = cardH + 'px';
-      });
-
+      track.querySelectorAll('.photo-card').forEach(card => { card.style.width = cardW + 'px'; card.style.height = cardH + 'px'; });
       applySlide(catId);
     }
 
-    /* ── Desliza o carrossel ── */
     function slide(catId, dir) {
       const track = document.getElementById(`track-${catId}`);
       const cards = [...track.querySelectorAll('.photo-card:not([style*="display: none"])')];
       if (!cards.length) return;
-
       const n = visibleCards();
       const maxIdx = Math.max(0, cards.length - n);
       state[catId].index = Math.min(maxIdx, Math.max(0, state[catId].index + dir));
-
       applySlide(catId);
       updateDots(catId);
       updateNavBtns(catId);
@@ -840,12 +695,10 @@
       const track = document.getElementById(`track-${catId}`);
       const cards = [...track.querySelectorAll('.photo-card')];
       if (!cards.length) return;
-
       const gap = 6;
       const cardW = parseInt(cards[0].style.width) || 0;
       const offset = state[catId].index * (cardW + gap);
       track.style.transform = `translateX(-${offset}px)`;
-
       updateNavBtns(catId);
     }
 
@@ -856,113 +709,64 @@
       const n = visibleCards();
       const maxIdx = Math.max(0, cards.length - n);
       const idx = state[catId].index;
-
       const prev = document.getElementById(`prev-${catId}`);
       const next = document.getElementById(`next-${catId}`);
-      if (prev) {
-        prev.disabled = idx <= 0;
-        prev.style.opacity = idx <= 0 ? '0.25' : '1';
-      }
-      if (next) {
-        next.disabled = idx >= maxIdx;
-        next.style.opacity = idx >= maxIdx ? '0.25' : '1';
-      }
+      if (prev) { prev.disabled = idx <= 0; prev.style.opacity = idx <= 0 ? '0.25' : '1'; }
+      if (next) { next.disabled = idx >= maxIdx; next.style.opacity = idx >= maxIdx ? '0.25' : '1'; }
     }
 
     function updateDots(catId) {
       const track = document.getElementById(`track-${catId}`);
       const dotsEl = document.getElementById(`dots-${catId}`);
       if (!dotsEl) return;
-
       const cards = [...track.querySelectorAll('.photo-card:not([style*="display: none"])')];
       const n = visibleCards();
       const pages = Math.max(1, Math.ceil(cards.length / n));
       const currentPage = Math.floor(state[catId].index / n);
-
       dotsEl.innerHTML = '';
       if (pages <= 1) return;
-
       for (let i = 0; i < pages; i++) {
         const dot = document.createElement('div');
         dot.className = 'cat-dot' + (i === currentPage ? ' active' : '');
-        dot.onclick = () => {
-          state[catId].index = i * n;
-          applySlide(catId);
-          updateDots(catId);
-          updateNavBtns(catId);
-        };
+        dot.onclick = () => { state[catId].index = i * n; applySlide(catId); updateDots(catId); updateNavBtns(catId); };
         dotsEl.appendChild(dot);
       }
     }
 
-    /* ── Header scroll ── */
     window.addEventListener('scroll', () => {
       document.getElementById('header').classList.toggle('scrolled', window.scrollY > 40);
     });
 
-    /* ── Menu mobile ── */
     function toggleMenu() {
       document.getElementById('hamburger').classList.toggle('open');
       document.getElementById('mobile-menu').classList.toggle('open');
     }
 
-    /* ── Scroll reveal ── */
     const revealObserver = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    /* ── Resize ── */
     let resizeTimer;
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => {
         resizeAll();
-        CATEGORIAS.forEach(cat => {
-          state[cat.id].index = 0;
-          updateDots(cat.id);
-          updateNavBtns(cat.id);
-        });
+        CATEGORIAS.forEach(cat => { state[cat.id].index = 0; updateDots(cat.id); updateNavBtns(cat.id); });
       }, 150);
     });
 
-    /* ══════════════════════════════════════════
-     *  LIGHTBOX
-     * ══════════════════════════════════════════ */
-    const FOTO_COUNT = {
-      cozinha: 16, quarto: 13, banheiro: 7,
-      sala: 11, projeto: 10, outros: 14,
-    };
-    const FOTO_FOLDER = {
-      cozinha: 'imagens/cozinha', quarto: 'imagens/quarto',
-      banheiro: 'imagens/banheiro', sala: 'imagens/sala',
-      projeto: 'imagens/projeto', outros: 'imagens/Outros',
-    };
+    /* LIGHTBOX */
+    const FOTO_COUNT = { cozinha: 16, quarto: 13, banheiro: 7, sala: 11, projeto: 10, outros: 14 };
+    const FOTO_FOLDER = { cozinha: 'imagens/cozinha', quarto: 'imagens/quarto', banheiro: 'imagens/banheiro', sala: 'imagens/sala', projeto: 'imagens/projeto', outros: 'imagens/Outros' };
 
     let lbCat = '', lbIdx = 1;
 
-    function openLightbox(cat, idx) {
-      lbCat = cat; lbIdx = idx;
-      document.getElementById('lightbox').classList.add('active');
-      document.body.style.overflow = 'hidden';
-      lbShow();
-    }
-    function lbShow() {
-      document.getElementById('lb-img').src = `${FOTO_FOLDER[lbCat]}/${lbIdx}.jpg`;
-      document.getElementById('lb-counter').textContent = `${lbIdx} / ${FOTO_COUNT[lbCat]}`;
-    }
-    function lbNav(dir) {
-      const total = FOTO_COUNT[lbCat];
-      lbIdx = ((lbIdx - 1 + dir + total) % total) + 1;
-      lbShow();
-    }
-    function closeLightbox() {
-      document.getElementById('lightbox').classList.remove('active');
-      document.body.style.overflow = '';
-    }
-    function closeLightboxOutside(e) {
-      if (e.target.id === 'lightbox') closeLightbox();
-    }
+    function openLightbox(cat, idx) { lbCat = cat; lbIdx = idx; document.getElementById('lightbox').classList.add('active'); document.body.style.overflow = 'hidden'; lbShow(); }
+    function lbShow() { document.getElementById('lb-img').src = `${FOTO_FOLDER[lbCat]}/${lbIdx}.jpg`; document.getElementById('lb-counter').textContent = `${lbIdx} / ${FOTO_COUNT[lbCat]}`; }
+    function lbNav(dir) { const total = FOTO_COUNT[lbCat]; lbIdx = ((lbIdx - 1 + dir + total) % total) + 1; lbShow(); }
+    function closeLightbox() { document.getElementById('lightbox').classList.remove('active'); document.body.style.overflow = ''; }
+    function closeLightboxOutside(e) { if (e.target.id === 'lightbox') closeLightbox(); }
     document.addEventListener('keydown', e => {
       if (!document.getElementById('lightbox').classList.contains('active')) return;
       if (e.key === 'ArrowRight') lbNav(1);
@@ -970,7 +774,6 @@
       if (e.key === 'Escape')     closeLightbox();
     });
 
-    /* ── Swipe touch no carrossel ── */
     let touchStartX = 0;
     document.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
     document.addEventListener('touchend', e => {
@@ -982,7 +785,6 @@
       slide(catId, diff > 0 ? 1 : -1);
     });
 
-    /* ── INICIA TUDO ── */
     buildCarrosseis();
   </script>
 </body>
