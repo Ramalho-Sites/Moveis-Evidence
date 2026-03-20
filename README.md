@@ -6,7 +6,7 @@ O site funciona como uma vitrine digital, exibindo o portfólio de projetos fina
 
 A galeria é organizada em categorias (Cozinha, Quarto, Banheiro, Sala, Projeto 3D e Outros), com carrossel de fotos, lightbox ao clicar nas imagens e navegação por swipe no celular.
 
-🔗 **[Ver site ao vivo](https://moveis-evidence.web.app)**
+🔗 **[Ver site ao vivo](https://ramalho-sites.github.io/Moveis-Evidence/public/index.html#inicio)**
 
 ---
 
